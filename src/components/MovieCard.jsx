@@ -14,16 +14,16 @@ function MovieCard(props) {
 					<div className="card-content">
 						<h2 className="movie-title limit-title" id="title">{props.title}</h2>
 						<div className="text-movie-cont movie-detail">
-							{/*<div className="mr-grid">
+							<div className="mr-grid">
 								<div className="col1">
 									<ul className="movie-gen">
-										<li th:text="${movie.releaseYear}+ '&nbsp;' + '  | '"></li>
-										<li text={props.}+ '&nbsp;' + '  | '></li>
-										<li text="{props.duration + '&nbsp;' + '  | '}"></li>
-										<li text="{props.genre}"></li>
+										<li > {props.year + ' ' + '  | '} </li>
+										<li > {props.movieRating + ' ' + '  | '} </li>
+										<li > {props.duration + ' ' + '  | '} </li>
+										<li > {props.genre} </li>
 									</ul>
 								</div>
-							</div> */}
+							</div> 
 							<div className="mr-grid summary-row">
 								<div className="row" style={{margin: "0px"}}>
 									<div className="col2" style={{padding: "0px"}}>

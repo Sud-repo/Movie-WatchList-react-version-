@@ -17,7 +17,7 @@ function CardsContainer(props) {
                     imgUrl = {movie.thumbnailURL}
                     review = {movie.reviewRating}
                     movieRating = {movie.movieRating}
-                    genres = {movie.genre}
+                    genre = {movie.genre}
                     language = {movie.language}
                 />;
             })}
