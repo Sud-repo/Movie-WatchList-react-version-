@@ -1,18 +1,16 @@
 import React from 'react';
+import MovieButton from './MovieButton';
 
 function MovieCard(props) {
 
-    let movieImageStyle = {
-        backgroundImage: `url(${props.imgUrl})`
-    }
 
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 flex-mywidth">
         <div className="movie-card">
             <div className="movie-image"
-                style={movieImageStyle}></div>
+                style={{backgroundImage: `url(${props.imgUrl})`}}></div>
             <div className="card-content">
-                <h2 className="movie-title limit-title" id="title">{props.title}</h2>
+                <h2 className="movie-title limit-title" id="title">{props.moiveName}</h2>
                 <div className="text-movie-cont movie-detail">
                     <div className="mr-grid">
                         <div className="col1">
@@ -42,13 +40,24 @@ function MovieCard(props) {
                         </div>
 
                         <div className="mr-grid action-row">
-                        <button className="button-effect button1" id={'1_Button_' + props.idMovieInfo}
+                        <MovieButton 
+                            buttonId={'1_Button_' + props.idMovieInfo} 
+                            movieName={props.moiveName}
+                            name='Watch Later'
+                        />
+                        <MovieButton 
+                            buttonId={'2_Button_' + props.idMovieInfo} 
+                            movieId={props.idMovieInfo}
+                            movieName={props.moiveName}
+                            name='Watched'
+                        />
+                        {/* <button className="button-effect button-m" id={'1_Button_' + props.idMovieInfo}
                             onClick="addMovieToWatchLater({movie.idMovieInfo}, {movie.moiveName})">
-                            <i className="fa-regular fa-hourglass-half fa-spin" style={{fontSize: '11px'}}></i> &nbsp; Watch Later</button>
+                            <i className={buttonStyle} style={{fontSize: '11px'}}></i> &nbsp; Watch Later</button> 
 
-                        <button className="button-effect button2" id={'2_Button_' + props.idMovieInfo}
+                        <button className="button-effect button-m" id={'2_Button_' + props.idMovieInfo}
                             onClick="addMovieToWatched({movie.idMovieInfo}, {movie.moiveName}) ">
-                            <i className="fa-solid fa-circle-check fa-beat-fade" style={{fontSize: '11px'}}></i> &nbsp; Watched</button>
+                            <i className="fa-solid fa-circle-check fa-beat-fade" style={{fontSize: '11px'}}></i> &nbsp; Watched</button> */}
                         </div>
                     </div>
                 </div>

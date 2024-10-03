@@ -10,7 +10,7 @@ function CardsContainer(props) {
                 return <MovieCard 
                     key = {movie.id}
                     id = {movie.idMovieInfo}
-                    title = {movie.moiveName}
+                    moiveName = {movie.moiveName}
                     description = {movie.description}
                     year = {movie.releaseYear}
                     duration = {movie.runtime}
