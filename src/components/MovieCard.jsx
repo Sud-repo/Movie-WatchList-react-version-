@@ -44,6 +44,7 @@ function MovieCard(props) {
                             buttonId={'1_Button_' + props.idMovieInfo} 
                             movieName={props.moiveName}
                             name='Watch Later'
+                            onAdd = {props.onAdd}
                         />
                         <MovieButton 
                             buttonId={'2_Button_' + props.idMovieInfo} 

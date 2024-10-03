@@ -15,9 +15,14 @@ function MovieButton(props) {
       // code block
   }
 
+  function addMovie() {
+    props.onAdd('Movie add to Watch later');
+ }
+
   return (
     <button className="button-effect button-m" id={props.buttonId}
         // onClick={addMovieToWatchLater({props.idMovieInfo}, {props.moiveName})}
+        onClick={addMovie}
         >
         <i className={buttonStyle} style={{fontSize: '11px'}}></i> &nbsp; {props.name}</button>
   )

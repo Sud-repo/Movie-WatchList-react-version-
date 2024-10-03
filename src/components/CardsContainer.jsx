@@ -19,6 +19,7 @@ function CardsContainer(props) {
                     movieRating = {movie.movieRating}
                     genre = {movie.genre}
                     language = {movie.language}
+                    onAdd = {props.onAdd}
                 />;
             })}
 	  	</div>

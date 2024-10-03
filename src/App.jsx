@@ -1,26 +1,30 @@
+import { useState } from "react";
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import CardsContainer from "./components/CardsContainer";
 import movies from "./components/Movies";
+import PopUp from "./components/PopUp";
 
 function App() {
 
+  let [show , setPopUp] = useState(false);
+
   const appTitle = 'Movie Watchlist'
+
+  function popMessage(msg) {
+    console.log(msg);
+    setPopUp(!show);
+  }
 
   return (
     <>
       <Header title={ appTitle } />
       <Navbar title = { appTitle } />
 
-	  <CardsContainer movies = { movies } />
-	
+	    <CardsContainer movies = { movies } onAdd = {popMessage} />
+      { show && <PopUp />}
 
-	{/* <div className="popup">
-		<i className="fa-regular fa-hourglass-half" id="wl-b" style="color: #d3ff13;font-size: 20px;margin-right: 10px; display: none;"></i> 
-		<i className="fa-solid fa-circle-check" id="w-b" style="color: #d3ff13;font-size: 20px;margin-right: 10px; display: none;"></i> 
-		<p className="message"> pop up message </p>
-	</div> */}
       <Footer title= { appTitle } />
 	
     </>
