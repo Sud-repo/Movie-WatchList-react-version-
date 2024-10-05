@@ -16,7 +16,6 @@ function App() {
   const appTitle = 'Movie Watchlist'
 
   function showPopup(msg) {
-    console.log(msg);
     setPopupData({
       show: true,
       msg: msg
