@@ -42,15 +42,18 @@ function MovieCard(props) {
                         <div className="mr-grid action-row">
                         <MovieButton 
                             buttonId={'1_Button_' + props.idMovieInfo} 
-                            movieName={props.moiveName}
+                            msg={props.moiveName + ': added to Watch Later'}
                             name='Watch Later'
                             onAdd = {props.onAdd}
+                            buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
                         />
                         <MovieButton 
                             buttonId={'2_Button_' + props.idMovieInfo} 
-                            movieId={props.idMovieInfo}
+                            msg={props.moiveName + ': added to Watched'}
                             movieName={props.moiveName}
                             name='Watched'
+                            onAdd = {props.onAdd}
+                            buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
                         />
                         {/* <button className="button-effect button-m" id={'1_Button_' + props.idMovieInfo}
                             onClick="addMovieToWatchLater({movie.idMovieInfo}, {movie.moiveName})">
