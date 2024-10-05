@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MovieButton from './MovieButton';
 
 function MovieCard(props) {
 
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  function toggleButtons() {
+    setIsDisabled(prev => !prev)
+  }
 
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 flex-mywidth">
@@ -44,7 +49,9 @@ function MovieCard(props) {
                             buttonId={'1_Button_' + props.idMovieInfo} 
                             msg={props.moiveName + ': added to Watch Later'}
                             name='Watch Later'
+                            isDisabled = {isDisabled}
                             onAdd = {props.onAdd}
+                            disableButtons = {toggleButtons}
                             buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
                         />
                         <MovieButton 
@@ -52,7 +59,9 @@ function MovieCard(props) {
                             msg={props.moiveName + ': added to Watched'}
                             movieName={props.moiveName}
                             name='Watched'
+                            isDisabled = {isDisabled}
                             onAdd = {props.onAdd}
+                            disableButtons = {toggleButtons}
                             buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
                         />
                         {/* <button className="button-effect button-m" id={'1_Button_' + props.idMovieInfo}
