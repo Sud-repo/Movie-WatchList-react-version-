@@ -16,7 +16,7 @@ function MovieButton(props) {
   }
 
   function addMovie() {
-    props.onAdd('Movie add to Watch later');
+    props.onAdd('Movie added to Watch later');
  }
 
   return (

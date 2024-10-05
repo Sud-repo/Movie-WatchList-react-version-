@@ -8,22 +8,36 @@ import PopUp from "./components/PopUp";
 
 function App() {
 
-  let [show , setPopUp] = useState(false);
+  let [popupData , setPopupData] = useState({
+    show: false,
+    msg: '',
+  });
 
   const appTitle = 'Movie Watchlist'
 
-  function popMessage(msg) {
+  function showPopup(msg) {
     console.log(msg);
-    setPopUp(!show);
+    setPopupData({
+      show: true,
+      msg: msg
+    });
   }
+
+  const handlePopupClose = () => {
+    setPopupData({ show: false, message: '' });
+  };
 
   return (
     <>
       <Header title={ appTitle } />
       <Navbar title = { appTitle } />
 
-	    <CardsContainer movies = { movies } onAdd = {popMessage} />
-      { show && <PopUp />}
+	    <CardsContainer movies = { movies } onAdd = {showPopup} />
+      <PopUp
+          msg = {popupData.msg}
+          show = {popupData.show}
+          onClose = {handlePopupClose}
+       />
 
       <Footer title= { appTitle } />
 	
