@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <Header title={ appTitle } />
-      <Navbar title = { appTitle } />
+      <Navbar />
 
 	    <CardsContainer movies = { movies } onAdd = {showPopup} />
       {currentPopup && (

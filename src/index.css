@@ -38,6 +38,9 @@
 .nav-link {
 	padding: 0.5rem 1rem !important;
 }
+.nav-link:hover {
+	color: ghostwhite;
+}
 .main-title{
 	font-size: 4rem;
 	color: black;
@@ -526,14 +529,18 @@ small {
 	padding-right: 5px;
 }
 .nav-align {
-	text-align: end;
+	text-align: center;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 }
 .nav-title {
-	padding: 5px;
-	margin: 0px 15px;
-	font-weight: 900;
+	padding: 0px 5px;
+    margin: 0px 35px;
+    color: black;
+    font-size: 20px;
+    max-height: fit-content;
+    font-weight: 900;
+    text-shadow: 0px 0px 7px #d3ff13;
 }
 
 .popup {
@@ -609,6 +616,7 @@ footer .app-title {
   justify-content: start; 
   font-size: 2rem; 
   font-weight: 700; 
-  color: white; 
+  color: black;
+  text-shadow: 0px 0px 7px #d3ff13;
   margin: 10px 0px;
 }
