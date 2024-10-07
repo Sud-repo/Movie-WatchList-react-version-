@@ -7,7 +7,7 @@ function MovieButton(props) {
   function initPopup() {
     props.disableButtons();
     setName('Added')
-    props.onAdd(props.msg);
+    props.onAdd(props.msg, props.buttonStyle);
  }
 
   let fontColor = props.isDisabled ? {color: "gray"} : null;

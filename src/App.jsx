@@ -48,8 +48,8 @@ function App() {
   }, []); // Empty dependency array ensures this runs only on unmount
 
   // Function to add a new popup to the queue
-  const showPopup = (msg) => {
-    setPopupQueue((queue) => [...queue, { message: msg }]); // Add new popup to the queue
+  const showPopup = (msg, icon) => {
+    setPopupQueue((queue) => [...queue, { message: msg, icon: icon }]); // Add new popup to the queue
   };
 
   return (
@@ -61,6 +61,7 @@ function App() {
       {currentPopup && (
         <PopUp 
           message={currentPopup.message} 
+          icon={currentPopup.icon}
           show={isShowing} />
       )}
 
