@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -10,13 +11,13 @@ function Navbar() {
 		<div className="collapse navbar-collapse nav-align" id="navbarNav">
 			<ul className="navbar-nav">
 				<li className="nav-item active">
-					<a className="nav-link" href="#">Home</a>
+					<Link className="nav-link" to="/">Home</Link>
 				</li>
 				<li className="nav-item">
-					<a className="nav-link" href="#">My WatchList</a>
+					<Link className="nav-link" to="/watchlist">My WatchList</Link>
 				</li>
 				<li className="nav-item">
-					<a className="nav-link" href="#">Add Movie</a>
+					<Link className="nav-link" to="/add-movie">Add Movie</Link>
 				</li>
 			</ul>
 		</div>
