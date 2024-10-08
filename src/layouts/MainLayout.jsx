@@ -13,8 +13,6 @@ function MainLayout() {
     <>
         <Header title={ appTitle } />
         <Navbar />
-        
-
         <Outlet />
         <Footer title= { appTitle } />
     </>
