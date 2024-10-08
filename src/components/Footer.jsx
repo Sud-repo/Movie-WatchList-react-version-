@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function Footer(props) {
 
@@ -11,9 +12,9 @@ function Footer(props) {
 			<div className="col-lg-12" style={{textAlign: "start", margin: "20px"}}>
 				<h2 style={{fontSize: "1.5rem", textDecoration: "underline"}}>Quick Access</h2>
 				<ul style={{padding: "0px 20px"}}>
-					<li className="footer-list" ><a className="footer-link" href="/movies/list">Home</a></li>
-					<li className="footer-list"><a className="footer-link" href="/movies/user-watchlist">My WatchList</a></li>
-					<li className="footer-list"><a className="footer-link" href="/movies/movie-form">Add Movie</a> </li>
+					<li className="footer-list" ><Link className="footer-link" to="/">Home</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/watchlist">My WatchList</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/add-movie">Add Movie</Link> </li>
 				</ul>
 			</div>
 		</div>
