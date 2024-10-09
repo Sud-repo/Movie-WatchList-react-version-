@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
+
+	const linkStyle = ({ isActive }) => isActive ? "nav-link active-link" : "nav-link";
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark main-header">
 		{/* <a className="navbar-brand nav-title" href="/movies/list">{ props.title }</a> */}
@@ -11,13 +14,13 @@ function Navbar() {
 		<div className="collapse navbar-collapse nav-align" id="navbarNav">
 			<ul className="navbar-nav">
 				<li className="nav-item active">
-					<Link className="nav-link" to="/">Home</Link>
+					<NavLink className={linkStyle} to="/">Movies</NavLink>
 				</li>
 				<li className="nav-item">
-					<Link className="nav-link" to="/watchlist">My WatchList</Link>
+					<NavLink className={linkStyle} to="/watchlist">WatchList</NavLink>
 				</li>
 				<li className="nav-item">
-					<Link className="nav-link" to="/add-movie">Add Movie</Link>
+					<NavLink className={linkStyle} to="/add-movie">Add Movie</NavLink>
 				</li>
 			</ul>
 		</div>
