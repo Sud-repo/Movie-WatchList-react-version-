@@ -31,6 +31,7 @@ function HomePage() {
 
   return (
     <>
+      {isLoading && <Loader /> }
       {isMovies ?  <CardsContainer movies = { movies } /> : <Empty/>}
     </>
   )
