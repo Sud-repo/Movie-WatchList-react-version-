@@ -2,6 +2,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import MyWatchListPage from "./pages/MyWatchListPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 const router = createBrowserRouter(
@@ -9,6 +10,7 @@ const router = createBrowserRouter(
           <Route path="/" element={<MainLayout />}>
             <Route path="/watchlist" element= { <MyWatchListPage /> } />
             <Route index element={<HomePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
       )
 );
