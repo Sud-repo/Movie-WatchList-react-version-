@@ -46,7 +46,8 @@ function MovieCard(props) {
 
                         <div className="mr-grid action-row">
                         <MovieButton 
-                            buttonId={'1_Button_' + props.idMovieInfo} 
+                            movieId={props.id}
+                            buttonId={'1_Button_' + props.id} 
                             msg={props.moiveName + ': added to Watch Later'}
                             name='Watch Later'
                             isDisabled = {isDisabled}
@@ -54,12 +55,14 @@ function MovieCard(props) {
                             disableButtons = {toggleButtons}
                             buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
                         />
-                        <MovieButton 
-                            buttonId={'2_Button_' + props.idMovieInfo} 
+                        <MovieButton
+                            movieId={props.id}
+                            buttonId={'2_Button_' + props.id} 
                             msg={props.moiveName + ': added to Watched'}
                             movieName={props.moiveName}
                             name='Watched'
                             isDisabled = {isDisabled}
+                            isAdded = {props.isAdded}
                             onAdd = {props.onAdd}
                             disableButtons = {toggleButtons}
                             buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'

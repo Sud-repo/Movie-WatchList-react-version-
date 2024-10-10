@@ -53,7 +53,7 @@ function CardsContainer(props) {
 	  	<div className="row">
             {props.movies.map(movie => {
                 return <MovieCard 
-                    key = {movie.id}
+                    key = { atob(movie.idMovieInfo)}
                     id = {movie.idMovieInfo}
                     moiveName = {movie.moiveName}
                     description = {movie.description}
@@ -64,6 +64,7 @@ function CardsContainer(props) {
                     movieRating = {movie.movieRating}
                     genre = {movie.genre}
                     language = {movie.language}
+                    isAdded = {movie.isAdded}
                     onAdd = {showPopup}
                 />;
             })}
