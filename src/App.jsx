@@ -3,13 +3,15 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import MyWatchListPage from "./pages/MyWatchListPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AddMoviePage from "./pages/AddMoviePage";
 
 
 const router = createBrowserRouter(
         createRoutesFromElements(
           <Route path="/" element={<MainLayout />}>
-            <Route path="/watchlist" element= { <MyWatchListPage /> } />
             <Route index element={<HomePage />} />
+            <Route path="/watchlist" element= { <MyWatchListPage /> } />
+            <Route path="/add-movie" element= { <AddMoviePage/> } />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
       )
