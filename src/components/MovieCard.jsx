@@ -52,6 +52,7 @@ function MovieCard(props) {
                             name='Watch Later'
                             isDisabled = {isDisabled}
                             onAdd = {props.onAdd}
+                            param = 'is-wl=true'
                             disableButtons = {toggleButtons}
                             buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
                         />
@@ -64,6 +65,7 @@ function MovieCard(props) {
                             isDisabled = {isDisabled}
                             isAdded = {props.isAdded}
                             onAdd = {props.onAdd}
+                            param = 'is-w=true'
                             disableButtons = {toggleButtons}
                             buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
                         />
