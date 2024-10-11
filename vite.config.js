@@ -11,10 +11,10 @@ export default defineConfig( ({mode}) => {
   server: {
     port: 3000,
     proxy: {
-      '/api': {
+      '/base-url': {
         target: env.VITE_API_BASE_URL, // Backend server URL
         changeOrigin: true,               // Changes the origin of the host header to the target URL
-        rewrite: (path) => path.replace(/^\/api/, ''), // Remove /api from the path
+        rewrite: (path) => path.replace(/^\/base-url/, ''), // Remove /base-url from the path
       },
     },
   },

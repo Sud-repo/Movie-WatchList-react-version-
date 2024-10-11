@@ -1,51 +1,38 @@
 import React, {useState} from 'react'
+import Login from '../components/Login';
 import '../login.css'
 
 function LoginPage() {
 
-    const [formData, setFormData] = useState({
-        username: '',
-        password: ''
-    });
-    const [uFocused, setUFocused] = useState(false);
-    const [pFocused, setPFocused] = useState(false);
-
-    function handleChange(event) {
-        let {name, value} = event.target
-        setFormData( prev => {
-            return {
-                ...prev,
-                [name]: value
-            }
+    async function loginUser(event, requestData) {
+        event.preventDefault();
+        try {
+            const response = await fetch('/base-url/api/v1/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
         });
+        const data = await response.json();
+        if(response.ok) {
+            window.location.href='/app/home'
+        }
+        if (response.status === 500) {
+            console.log("errorData", data);
+            throw new Error(errorData.message || 'Internal Server Error');
+        }
+        if (!response.ok) {
+            console.log('Response status:', response.status); 
+            throw new Error('Network response was not ok');
+        }
+    } catch(error) {
+        console.log(error);
+        alert(error.message || 'Login failed. Please try again.');
+        }
     }
 
-  return (
-    <div className='login-container'>
-    <div className="login-box">
-        <h2>Login</h2>
-        <form>
-            <div className="user-box">
-            <input onChange={handleChange} 
-                    onFocus={() => setUFocused(true)} 
-                    onBlur={() => setUFocused(false)} 
-                    type="text" name="username" required />
-            <label className={uFocused || formData.username ? 'a-label' : ''} >Username</label>
-            </div>
-            <div className="user-box">
-            <input onChange={handleChange} 
-                    onFocus={() => setPFocused(true)} 
-                    onBlur={() => setPFocused(false)} 
-                    type="password" name="password" required />
-            <label className={pFocused || formData.password ? 'a-label' : ''} >Password</label>
-            </div>
-            <button >
-            Submit
-            </button>
-        </form>
-    </div>
-    </div>
-  )
+  return <Login onSubmit={loginUser} />
 }
 
 export default LoginPage
