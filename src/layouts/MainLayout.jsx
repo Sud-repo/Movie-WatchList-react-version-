@@ -7,14 +7,12 @@ import Footer from "../components/Footer"
 
 function MainLayout() {
 
-    const appTitle = 'Movie Watchlist'
-
   return (
     <>
-        <Header title={ appTitle } />
+        <Header title={ import.meta.env.VITE_APP_NAME } />
         <Navbar />
         <Outlet />
-        <Footer title= { appTitle } />
+        <Footer title= { import.meta.env.VITE_APP_NAME } />
     </>
   )
 }
