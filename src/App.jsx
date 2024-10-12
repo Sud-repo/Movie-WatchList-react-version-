@@ -8,27 +8,24 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AddMoviePage from "./pages/AddMoviePage";
 import LoginPage from "./pages/LoginPage";
 
-const router = createBrowserRouter(
-        createRoutesFromElements(
-          <>
-          <Route path="/" element={ <AuthLayout />}>
-            <Route index element={ <LoginPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-          <Route path="/app" element={<MainLayout />}>
-            <Route path="home" element={ <SecureRoute> <HomePage /> </SecureRoute>} />
-            <Route path="watchlist" element= { <SecureRoute> <MyWatchListPage /> </SecureRoute> } />
-            <Route path="add-movie" element= {  <SecureRoute> <AddMoviePage/> </SecureRoute> } />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-          </>
-      )
-);
-
-
 function App() {
 
-  const appTitle = 'Movie Watchlist'
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+      <Route path="/" element={ <AuthLayout />}>
+        <Route index element={ <LoginPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      <Route path="/app" element={<MainLayout />}>
+        <Route path="home" element={ <SecureRoute> <HomePage /> </SecureRoute>} />
+        <Route path="watchlist" element= { <SecureRoute> <MyWatchListPage /> </SecureRoute> } />
+        <Route path="add-movie" element= {  <SecureRoute> <AddMoviePage/> </SecureRoute> } />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      </>
+  )
+);
 
   return <RouterProvider router={router} />
 

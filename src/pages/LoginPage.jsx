@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import Login from '../components/Login';
 import '../login.css'
 
 function LoginPage() {
+
+    const navigate = useNavigate();
 
     async function loginUser(event, requestData) {
         event.preventDefault();
@@ -16,7 +18,7 @@ function LoginPage() {
         });
         const data = await response.json();
         if(response.ok) {
-            window.location.href='/app/home'
+            navigate('/app/home');
         }
         if (response.status === 500) {
             console.log("errorData", data);
