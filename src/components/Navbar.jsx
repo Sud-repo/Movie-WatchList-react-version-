@@ -14,13 +14,13 @@ function Navbar() {
 		<div className="collapse navbar-collapse nav-align" id="navbarNav">
 			<ul className="navbar-nav">
 				<li className="nav-item active">
-					<NavLink className={linkStyle} to="/app/home">Movies</NavLink>
+					<NavLink className={linkStyle} to="/home">Movies</NavLink>
 				</li>
 				<li className="nav-item">
-					<NavLink className={linkStyle} to="/app/watchlist">WatchList</NavLink>
+					<NavLink className={linkStyle} to="/watchlist">WatchList</NavLink>
 				</li>
 				<li className="nav-item">
-					<NavLink className={linkStyle} to="/app/add-movie">Add Movie</NavLink>
+					<NavLink className={linkStyle} to="/add-movie">Add Movie</NavLink>
 				</li>
 			</ul>
 		</div>

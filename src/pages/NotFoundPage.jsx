@@ -9,7 +9,7 @@ function NotFoundPage() {
         <p className='nf-p'>The page you are looking for does not exist.<br /> 
         How you got here is a mystery.<br />
         But you can click the button below to go back to the homepage.</p>
-        <Link className='home-b' to="/app/home">Home</Link>
+        <Link className='home-b' to="/">Home</Link>
     </div>
   )
 }

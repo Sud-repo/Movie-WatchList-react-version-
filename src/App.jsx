@@ -13,12 +13,12 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-      <Route path="/" element={ <AuthLayout />}>
-        <Route index element={ <LoginPage />} />
+      <Route path="/auth" element={ <AuthLayout />}>
+        <Route path="login" element={ <LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="/app" element={<MainLayout />}>
-        <Route path="home" element={ <SecureRoute> <HomePage /> </SecureRoute>} />
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={ <SecureRoute> <HomePage /> </SecureRoute>} />
         <Route path="watchlist" element= { <SecureRoute> <MyWatchListPage /> </SecureRoute> } />
         <Route path="add-movie" element= {  <SecureRoute> <AddMoviePage/> </SecureRoute> } />
         <Route path="*" element={<NotFoundPage />} />

@@ -9,7 +9,7 @@ const getCookie = (name) => {
 
 const SecureRoute = ({ children }) => {
   const token = getCookie("jwtToken");
-  return token ? children : <Navigate to="/" />;
+  return token ? children : <Navigate to="/auth/login" />;
 };
 
 export default SecureRoute;
