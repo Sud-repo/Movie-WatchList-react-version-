@@ -64,7 +64,6 @@ function CardsContainer(props) {
                     movieRating = {movie.movieRating}
                     genre = {movie.genre}
                     language = {movie.language}
-                    isAdded = {movie.isAdded}
                     onAdd = {showPopup}
                 />;
             })}

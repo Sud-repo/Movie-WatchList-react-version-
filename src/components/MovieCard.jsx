@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MovieButton from './MovieButton';
+import HomeButtons from './HomeButtons';
 
 function MovieCard(props) {
 
@@ -45,30 +46,13 @@ function MovieCard(props) {
                         </div>
 
                         <div className="mr-grid action-row">
-                        <MovieButton 
-                            movieId={props.id}
-                            buttonId={'1_Button_' + props.id} 
-                            msg={props.moiveName + ': added to Watch Later'}
-                            name='Watch Later'
-                            isDisabled = {isDisabled}
-                            onAdd = {props.onAdd}
-                            param = 'is-wl=true'
-                            disableButtons = {toggleButtons}
-                            buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
-                        />
-                        <MovieButton
-                            movieId={props.id}
-                            buttonId={'2_Button_' + props.id} 
-                            msg={props.moiveName + ': added to Watched'}
-                            movieName={props.moiveName}
-                            name='Watched'
-                            isDisabled = {isDisabled}
-                            isAdded = {props.isAdded}
-                            onAdd = {props.onAdd}
-                            param = 'is-w=true'
-                            disableButtons = {toggleButtons}
-                            buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
-                        />
+
+                        <HomeButtons 
+                            id={props.id}
+                            movieName={props.moiveName + ': '}
+                            onAdd={props.onAdd}
+                         />
+
                         {/* <button className="button-effect button-m" id={'1_Button_' + props.idMovieInfo}
                             onClick="addMovieToWatchLater({movie.idMovieInfo}, {movie.moiveName})">
                             <i className={buttonStyle} style={{fontSize: '11px'}}></i> &nbsp; Watch Later</button> 
