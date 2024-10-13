@@ -4,7 +4,7 @@ import WatchlistButtons from './WatchlistButtons'
 
 function MovieCard(props) {
 
-  return (
+  return ( <>
     <div className="col-lg-3 col-md-4 col-sm-6 flex-mywidth">
         <div className="movie-card">
             <div className="movie-image"
@@ -39,14 +39,7 @@ function MovieCard(props) {
                             </div>
                         </div>
 
-                        <div className="mr-grid action-row">
-                        {
-                            props.isHome ? <HomeButtons 
-                            id={props.id}
-                            movieName={props.moiveName + ': '}
-                            onAdd={props.onAdd}
-                         /> : <WatchlistButtons />
-                        }
+                        
                         
 
                         {/* <button className="button-effect button-m" id={'1_Button_' + props.idMovieInfo}
@@ -59,10 +52,21 @@ function MovieCard(props) {
                         </div>
                     </div>
                 </div>
+                
             </div>
-        </div>
-    </div>
-  )
+        
+   
+    <div className="mr-grid action-row">
+                        {
+                            props.isHome ? <HomeButtons 
+                            id={props.id}
+                            movieName={props.moiveName + ': '}
+                            onAdd={props.onAdd}
+                         /> : <WatchlistButtons />
+                        }
+                        </div>
+</div>
+    </>)
 }
 
 export default MovieCard;
