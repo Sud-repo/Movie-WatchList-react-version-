@@ -27,7 +27,7 @@ function MyWatchListPage() {
 
     return (
       <>
-        {isMovies ?  <CardsContainer movies = { userMovies } /> : <Empty/>}
+        {isMovies ?  <CardsContainer movies = { userMovies } isHome={false} /> : <Empty/>}
       </>
     )
 }

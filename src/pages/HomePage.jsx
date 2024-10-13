@@ -32,7 +32,7 @@ function HomePage() {
   return (
     <>
       {isLoading && <Loader /> }
-      {isMovies ?  <CardsContainer movies = { movies } /> : <Empty/>}
+      {isMovies ?  <CardsContainer movies = { movies } isHome={true} /> : <Empty/>}
     </>
   )
 }

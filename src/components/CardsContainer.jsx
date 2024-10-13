@@ -65,6 +65,7 @@ function CardsContainer(props) {
                     genre = {movie.genre}
                     language = {movie.language}
                     onAdd = {showPopup}
+                    isHome={props.isHome}
                 />;
             })}
 	  	</div>
