@@ -6,6 +6,12 @@ function MyWatchListPage() {
 
     const [userMovies, setUserMovies] = useState([]);
 
+    function removeFromUserMovie(id) {
+      setUserMovies(userMovies.filter(
+        movie => movie.id != id
+      ))
+    }
+
     useEffect( () => {
       async function fetchUserMovies() {
         try{
@@ -27,7 +33,12 @@ function MyWatchListPage() {
 
     return (
       <>
-        {isMovies ?  <CardsContainer movies = { userMovies } isHome={false} /> : <Empty/>}
+        {isMovies ?  <CardsContainer 
+                    movies = { userMovies } 
+                    isHome={false} 
+                    onRemove={removeFromUserMovie}
+                    /> 
+                    : <Empty/>}
       </>
     )
 }
