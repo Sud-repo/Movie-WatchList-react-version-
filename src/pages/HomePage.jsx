@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import CardsContainer from "../components/CardsContainer";
-import jsonMovies from "../components/Movies";
-import Empty from '../components/Empty';
+import CardsContainer from "../components/movie/CardsContainer";
+import jsonMovies from "../components/movie/Movies";
+import Empty from '../components/movie/Empty';
 import Loader from '../components/Loader';
 
 

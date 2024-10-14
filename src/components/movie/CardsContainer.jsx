@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import MovieCard from './MovieCard';
-import PopUp from "./PopUp";
+import PopUp from "../popup/PopUp";
 
 
 function CardsContainer(props) {

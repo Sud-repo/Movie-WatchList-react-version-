@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import CardsContainer from '../components/CardsContainer';
-import Empty from '../components/Empty';
+import CardsContainer from '../components/movie/CardsContainer';
+import Empty from '../components/movie/Empty';
 
 function MyWatchListPage() {
 
