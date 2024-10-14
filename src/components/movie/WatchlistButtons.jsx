@@ -7,7 +7,6 @@ function WatchlistButtons(props) {
   const { showPopup } = useOutletContext();
 
   async function removeMovieFromWatchList(icon) {
-    console.log('Remove movie!');
     try{
         const res = await fetch(`/base-url/movies/remove/${props.id}`, {
             method: 'DELETE',
@@ -17,7 +16,6 @@ function WatchlistButtons(props) {
         });
         const jsonRes = await res.json();
         if (res.status == 201 || res.status == 202 || res.status == 208) {
-            console.log(jsonRes);
             showPopup(props.movieName + ': ' + jsonRes.message, icon)
             props.onRemove(props.id)
         }
@@ -31,7 +29,10 @@ function WatchlistButtons(props) {
   }
 
   async function setMovieToWatched(icon) {
-    console.log("updated movie to Watched");
+    if(props.isDisabled){
+      showPopup(props.movieName + ': Alredy Watched');
+      return;
+    }
     try{
       const res = await fetch(`/base-url/movies/watched/${props.id}`, {
           method: 'PUT',
@@ -41,9 +42,8 @@ function WatchlistButtons(props) {
       });
       const jsonRes = await res.json();
       if (res.status == 201 || res.status == 202 || res.status == 208) {
-          console.log(jsonRes);
           showPopup(props.movieName + ': ' + jsonRes.message, icon)
-          // props.onRemove(props.id)
+          props.onWatched()
       }
       } catch (error) {
           console.log('Error fetching Data: ' +error);

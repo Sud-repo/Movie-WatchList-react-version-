@@ -5,6 +5,12 @@ import HomeButtons from './HomeButtons';
 
 function MovieCard(props) {
 
+    const [isWatched, setIsWatched] = useState(props.isWatched);
+
+    function toggleIsWatched() {
+        setIsWatched(prev => !prev);
+    }
+
   return ( <>
     <div className="col-lg-3 col-md-4 col-sm-6 flex-mywidth">
         <div className="movie-card">
@@ -55,11 +61,13 @@ function MovieCard(props) {
                     id={props.id}
                     movieName={props.movieName}
                     onRemove={props.onRemove}
+                    onWatched={toggleIsWatched}
+                    isDisabled={isWatched}
                 />
                 }
                 
             </div>
-        {props.isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
+        {isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
     </div>
     </>)
 }
