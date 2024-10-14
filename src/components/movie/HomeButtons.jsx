@@ -1,6 +1,9 @@
 import MovieButton from './MovieButton'
+import { useOutletContext } from 'react-router-dom';
 
 function HomeButtons(props) {
+
+    const { showPopup } = useOutletContext();
 
     async function setMovietoWatchLater(isWatchLater, icon) {
         const param = isWatchLater ? "is-wl=true" : "is-w=true";
@@ -14,11 +17,11 @@ function HomeButtons(props) {
             const jsonRes = await res.json();
             if (res.status == 201 || res.status == 208) {
                 console.log(jsonRes);
-                props.onAdd(props.movieName + jsonRes.message, icon)
+                showPopup(props.movieName + jsonRes.message, icon)
             }
         } catch (error) {
             console.log('Error fetching Data: ' +error);
-            props.onAdd('Error! Please Try Later', '')
+            showPopup('Error! Please Try Later', '')
         }
         //  finally {
         //     setLoading(false)

@@ -61,7 +61,6 @@ function MovieCard(props) {
                             props.isHome ? <HomeButtons 
                             id={props.id}
                             movieName={props.moiveName + ': '}
-                            onAdd={props.onAdd}
                          /> : <WatchlistButtons />
                         }
                         </div>
