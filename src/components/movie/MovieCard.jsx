@@ -56,15 +56,16 @@ function MovieCard(props) {
             </div>
         
    
-    <div className="mr-grid action-row">
-                        {
-                            props.isHome ? <HomeButtons 
-                            id={props.id}
-                            movieName={props.moiveName + ': '}
-                         /> : <WatchlistButtons />
-                        }
-                        </div>
-</div>
+            <div className="mr-grid action-row">
+            {
+                props.isHome ? <HomeButtons 
+                id={props.id}
+                movieName={props.moiveName + ': '}
+                /> : <WatchlistButtons />
+            }
+            </div>
+        {props.isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
+    </div>
     </>)
 }
 

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import MovieCard from './MovieCard';
-import PopUp from "../popup/PopUp";
 
 
 function CardsContainer(props) {
@@ -23,6 +22,8 @@ function CardsContainer(props) {
                     genre = {movie.genre}
                     language = {movie.language}
                     isHome={props.isHome}
+                    isWatchLater={movie.isWatchLater}
+                    isWatched={movie.isWatched}
                 />;
             })}
 	  	</div>

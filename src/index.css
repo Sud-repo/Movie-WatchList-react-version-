@@ -694,3 +694,11 @@ footer .app-title {
 		padding: 15px;
 	}
 }
+.watched-icon {
+	position: relative;
+	bottom: 27pc;
+	left: 14pc;
+	font-size: 2rem;
+	color: #d3ff13;
+	z-index: 150;
+}
