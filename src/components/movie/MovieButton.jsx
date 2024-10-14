@@ -2,10 +2,10 @@
 function MovieButton(props) {
 
   function handleClickToAdd() {
-    props.addToWatchlist(props.name === 'Watch Later' ? true : false, props.buttonStyle)
+    props.onButtonClick(props.name === 'Watch Later' ? true : false, props.buttonStyle)
   }
   function handleClickToRemove() {
-    props.addToWatchlist()
+    props.onButtonClick(props.buttonStyle)
   }
 
   const isRemove = props.name === 'Remove';

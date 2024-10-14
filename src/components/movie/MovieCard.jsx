@@ -1,38 +1,9 @@
 import React, { useState } from 'react';
-import MovieButton from './MovieButton';
-import { useOutletContext } from 'react-router-dom';
+import WatchlistButtons from './WatchlistButtons';
+import HomeButtons from './HomeButtons';
 
 
 function MovieCard(props) {
-
-    const { showPopup } = useOutletContext();
-
-    async function addMovieToWatchList(isWatchLater, icon) {
-        const param = isWatchLater ? "is-wl=true" : "is-w=true";
-        try{
-            const res = await fetch(`/base-url/movies/user-movie?id=${props.id}&${param}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            const jsonRes = await res.json();
-            if (res.status == 201 || res.status == 208) {
-                console.log(jsonRes);
-                showPopup(props.movieName + ': ' + jsonRes.message, icon)
-            }
-        } catch (error) {
-            console.log('Error fetching Data: ' +error);
-            showPopup('Error! Please Try Later', '')
-        }
-        //  finally {
-        //     setLoading(false)
-        // }
-    }
-
-    function removeMovieFromWatchList() {
-        console.log('Remove movie!');
-    }
 
   return ( <>
     <div className="col-lg-3 col-md-4 col-sm-6 flex-mywidth">
@@ -77,25 +48,16 @@ function MovieCard(props) {
    
             <div className="mr-grid action-row">
             
-                {props.isHome ? <MovieButton 
-                    buttonId={'Button-1'} 
-                    name='Watch Later'
-                    addToWatchlist={addMovieToWatchList}
-                    buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
-                /> :
-                <MovieButton 
-                    buttonId={'Button-1'} 
-                    name='Remove'
-                    addToWatchlist={removeMovieFromWatchList}
-                    buttonStyle = 'fa-solid fa-trash fa-beat-fade'
+                {props.isHome ? <HomeButtons 
+                    id={props.id}
+                    movieName={props.movieName}
+                /> : <WatchlistButtons 
+                    id={props.id}
+                    movieName={props.movieName}
+                    onRemove={props.onRemove}
                 />
                 }
-                <MovieButton
-                    buttonId={'Button-2'} 
-                    name='Watched'
-                    addToWatchlist={addMovieToWatchList}
-                    buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
-                />
+                
             </div>
         {props.isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
     </div>

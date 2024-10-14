@@ -24,6 +24,7 @@ function CardsContainer(props) {
                     isHome={props.isHome}
                     isWatchLater={movie.isWatchLater}
                     isWatched={movie.isWatched}
+                    onRemove={props.onRemove}
                 />;
             })}
 	  	</div>

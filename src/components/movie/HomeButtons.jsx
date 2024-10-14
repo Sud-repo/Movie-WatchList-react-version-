@@ -5,7 +5,7 @@ function HomeButtons(props) {
 
     const { showPopup } = useOutletContext();
 
-    async function setMovietoWatchLater(isWatchLater, icon) {
+    async function addMovieToWatchList(isWatchLater, icon) {
         const param = isWatchLater ? "is-wl=true" : "is-w=true";
         try{
             const res = await fetch(`/base-url/movies/user-movie?id=${props.id}&${param}`, {
@@ -17,7 +17,7 @@ function HomeButtons(props) {
             const jsonRes = await res.json();
             if (res.status == 201 || res.status == 208) {
                 console.log(jsonRes);
-                showPopup(props.movieName + jsonRes.message, icon)
+                showPopup(props.movieName + ': ' + jsonRes.message, icon)
             }
         } catch (error) {
             console.log('Error fetching Data: ' +error);
@@ -30,15 +30,15 @@ function HomeButtons(props) {
   return (
     <>
         <MovieButton 
-            buttonId={'1_Button_' + props.id} 
+            buttonId={'Button-1'} 
             name='Watch Later'
-            addToWatchlist={setMovietoWatchLater}
+            onButtonClick={addMovieToWatchList}
             buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
         />
         <MovieButton
-            buttonId={'2_Button_' + props.id} 
+            buttonId={'Button-2'} 
             name='Watched'
-            addToWatchlist={setMovietoWatchLater}
+            onButtonClick={addMovieToWatchList}
             buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
         />
     </>

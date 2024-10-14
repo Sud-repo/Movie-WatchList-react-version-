@@ -134,7 +134,7 @@
   .movie-card .movie-title {
     position: absolute;
     left: 23px;
-    bottom: 4.5pc;
+    bottom: 3.5pc;
     margin: 0;
     transition: inset 0.3s 0.3s ease-out;
     font-weight: normal;
@@ -508,7 +508,7 @@ small {
     transition: none;        
     z-index: 150;            
     position: relative;      
-	bottom: 5pc;
+	bottom: 4.9pc;
     left: 0pc;
     width: 100%;
 }
