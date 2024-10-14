@@ -481,6 +481,9 @@ small {
 	margin-bottom: 10px;
 }
 
+#Button-1 {
+	margin-left: 25px;
+}
 .button-m {
 	margin: 5px 5px;
 }
@@ -505,9 +508,9 @@ small {
     transition: none;        
     z-index: 150;            
     position: relative;      
-	bottom: 5.5pc;
-    left: 1pc;
-	width: max-content;
+	bottom: 5pc;
+    left: 0pc;
+    width: 100%;
 }
 
 .button-effect:hover {
@@ -515,11 +518,19 @@ small {
 	color: #d3ff13;
 	border-color: #d3ff13;
 }
+.button-del:hover {
+	transform: scale(1.08);
+	color: #FF3131;
+	border-color: #FF3131;
+}
 .button-effect:focus {
 	outline: none;
 }
 .button-effect:active:focus {
 	border-color: #d3ff13;
+}
+.button-del:active:focus {
+	border-color: #FF3131;
 }
 
 .empty-text {
@@ -696,8 +707,8 @@ footer .app-title {
 }
 .watched-icon {
 	position: relative;
-	bottom: 27pc;
-	left: 14pc;
+	bottom: 29pc;
+	left: 14.5pc;
 	font-size: 2rem;
 	color: #d3ff13;
 	z-index: 150;

@@ -12,7 +12,7 @@ function CardsContainer(props) {
                 return <MovieCard 
                     key = { isNaN(movie.idMovieInfo) ? atob(movie.idMovieInfo) : movie.idMovieInfo}
                     id = {movie.idMovieInfo}
-                    moiveName = {movie.moiveName}
+                    movieName = {movie.moiveName}
                     description = {movie.description}
                     year = {movie.releaseYear}
                     duration = {movie.runtime}

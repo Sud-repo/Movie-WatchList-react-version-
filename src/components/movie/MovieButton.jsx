@@ -1,14 +1,20 @@
 
 function MovieButton(props) {
 
-  function addMovieToWatchlist() {
+  function handleClickToAdd() {
     props.addToWatchlist(props.name === 'Watch Later' ? true : false, props.buttonStyle)
   }
+  function handleClickToRemove() {
+    props.addToWatchlist()
+  }
+
+  const isRemove = props.name === 'Remove';
+  const buttonStyle = isRemove ? "button-effect button-m button-del" : "button-effect button-m";
 
   return (
-    <button className="button-effect button-m" id={props.buttonId}
+    <button className={buttonStyle} id={props.buttonId}
         
-        onClick={addMovieToWatchlist}
+        onClick={isRemove ? handleClickToRemove : handleClickToAdd}
         >
         <i className={props.buttonStyle}></i> &nbsp; {props.name}</button>
   )
