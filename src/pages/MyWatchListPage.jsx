@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CardsContainer from '../components/movie/CardsContainer';
 import Empty from '../components/movie/Empty';
+import MovieFilter from '../components/movie/MovieFilter';
 
 function MyWatchListPage() {
 
@@ -33,6 +34,7 @@ function MyWatchListPage() {
 
     return (
       <>
+        <MovieFilter />
         {isMovies ?  <CardsContainer 
                     movies = { userMovies } 
                     isHome={false} 
