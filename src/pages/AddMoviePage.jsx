@@ -27,7 +27,6 @@ function AddMoviePage() {
 		})
 		const data = await response.json();
         if(response.ok) {
-			console.log(data);
 			showPopup(data.message, 'fa-solid fa-film')	
         }
         if (response.status === 500) {
@@ -40,8 +39,7 @@ function AddMoviePage() {
         }
 	} catch(error) {
         console.log(error);
-        alert(error.message || 'Login failed. Please try again.');
-		showPopup(error.message, 'fa-solid fa-film')
+		showPopup(error.message, 'fa-solid fa-circle-exclamation')
         }
 	}
   return (

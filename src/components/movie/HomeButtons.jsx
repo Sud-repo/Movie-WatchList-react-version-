@@ -16,12 +16,11 @@ function HomeButtons(props) {
             });
             const jsonRes = await res.json();
             if (res.status == 201 || res.status == 208) {
-                console.log(jsonRes);
                 showPopup(props.movieName + ': ' + jsonRes.message, icon)
             }
         } catch (error) {
             console.log('Error fetching Data: ' +error);
-            showPopup('Error! Please Try Later', '')
+            showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
         }
         //  finally {
         //     setLoading(false)

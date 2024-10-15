@@ -9,7 +9,6 @@ export const MovieProvider = ({ children }) => {
 
   const removeFromUserMovie = (id) => {
     setUserMovies(userMovies.filter(movie => movie.id !== id));
-    console.log(`Removing movie with ID: ${id}`);
   };
 
   // You might want to include `setUserMovies` or other functions in the context
