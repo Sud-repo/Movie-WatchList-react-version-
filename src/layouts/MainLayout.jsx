@@ -4,6 +4,7 @@ import Header from "../components/layout/Header"
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
 import PopUp from '../components/popup/PopUp'
+import Loader from '../components/Loader'
 
 
 function MainLayout() {
@@ -50,11 +51,13 @@ function MainLayout() {
     setPopupQueue((queue) => [...queue, { message: msg, icon: icon }]); // Add new popup to the queue
   };
 
+  const [isLoading, setLoading] = useState(false);
+
   return (
     <>
         <Header title={ import.meta.env.VITE_APP_NAME } />
         <Navbar />
-        <Outlet context={{ showPopup }} />
+        <Outlet context={{ showPopup, setLoading }} />
         <Footer title= { import.meta.env.VITE_APP_NAME } />
         {currentPopup && (
           <PopUp 
@@ -62,6 +65,7 @@ function MainLayout() {
             icon={currentPopup.icon}
             show={isShowing} />
         )}
+        <Loader show={isLoading} />
     </>
   )
 }

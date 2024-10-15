@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 
 function AddMoviePage() {
 
-	const { showPopup } = useOutletContext();
+	const { showPopup, setLoading } = useOutletContext();
 	const [formData, setFormData] = useState({
 		movieURL: '',
 		movieLanguage: '',
@@ -18,7 +18,9 @@ function AddMoviePage() {
 
 	async function addMovie(event) {
 		event.preventDefault();
-		try { const response = await fetch('/base-url/watchlist/include-movie', {
+		try {
+			setLoading(true) 
+			const response = await fetch('/base-url/watchlist/include-movie', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -37,10 +39,12 @@ function AddMoviePage() {
             console.log('Response status:', response.status); 
             throw new Error('Network response was not ok');
         }
-	} catch(error) {
-        console.log(error);
-		showPopup(error.message, 'fa-solid fa-circle-exclamation')
-        }
+		} catch(error) {
+			console.log(error);
+			showPopup(error.message, 'fa-solid fa-circle-exclamation')
+		} finally {
+			setLoading(false)
+		}
 	}
   return (
     <div className="form-container">

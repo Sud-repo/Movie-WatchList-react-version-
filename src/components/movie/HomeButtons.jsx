@@ -22,9 +22,6 @@ function HomeButtons(props) {
             console.log('Error fetching Data: ' +error);
             showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
         }
-        //  finally {
-        //     setLoading(false)
-        // }
     }
   return (
     <>
