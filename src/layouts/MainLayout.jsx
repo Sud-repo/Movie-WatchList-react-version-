@@ -48,6 +48,9 @@ function MainLayout() {
 
   // Function to add a new popup to the queue
   const showPopup = (msg, icon) => {
+    if(currentPopup) 
+      if (msg === currentPopup.message)
+        return;
     setPopupQueue((queue) => [...queue, { message: msg, icon: icon }]); // Add new popup to the queue
   };
 
@@ -62,8 +65,9 @@ function MainLayout() {
         {currentPopup && (
           <PopUp 
             message={currentPopup.message} 
-            icon={currentPopup.icon}
-            show={isShowing} />
+            icon={currentPopup.icon} 
+            show={isShowing}
+            />
         )}
         <Loader show={isLoading} />
     </>

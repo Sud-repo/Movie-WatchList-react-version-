@@ -585,26 +585,43 @@ small {
 }
 
 .popup {
-    display: none; 
+    display: block; 
     width: 20pc;
     height: auto;
     background-color: #11171c;
     border: 2px outset #d3ff13;
-    border-radius: 2pc;
+	border-bottom-left-radius: 1pc;
+	border-bottom-right-radius: 1pc;
     position: fixed;
-    top: 4pc;
-    left: 50%;
+    top: 1pc;
+    right: -7pc;
     text-align: center;
     padding: 10px;
     color: white;
     z-index: 150;
     transform: translateX(-50%);
-    opacity: 0;
 }
-
+@media only screen and (max-width: 420px) {
+	.popup {
+		right: -9pc;
+	}
+  }
 .message {
 	display: inline;
 	font-size: 1rem;
+}
+.progress-bar-container {
+	position: absolute;
+	top: -12px;
+    left: 0px;
+	margin-top: 10px; 
+	background: white;
+	height: 5px; 
+	width: 100%
+}
+.progress-bar {
+	background: #d3ff13;
+	height: 100%
 }
 
 .form-button {
