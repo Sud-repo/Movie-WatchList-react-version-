@@ -18,7 +18,7 @@ function LoginPage() {
         });
         const data = await response.json();
         if(response.ok) {
-            navigate('/app/home');
+            navigate('/');
         }
         if (response.status === 500) {
             console.log("errorData", data);

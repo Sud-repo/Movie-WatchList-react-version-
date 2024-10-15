@@ -550,10 +550,11 @@ small {
 	color: rgba(255,255,255,.5);
 	font-size: larger;
 	padding: 12pt 3rem 2px 3rem;
-	margin: 5px 15px;
+	margin: 10px 0px;
 	justify-content: end;
 	align-items: center;
 	text-align: end;
+	width: 100%;
 }
 
 .fil-sel {
@@ -561,6 +562,7 @@ small {
 	color: #d3ff13;
 	border-radius: 6px;
 	border-block-end: none;
+	outline: none !important;
 }
 
 .filter-label {

@@ -13,28 +13,28 @@ function MyWatchListPage() {
       ))
     }
 
+    async function fetchUserMovies(url) {
+      try{
+        const res = await fetch(url);
+        const jsonRes = await res.json();
+        setUserMovies(jsonRes.data);
+      } catch (error) {
+        console.log('Error fetching Data: ' +error);
+      } 
+      // finally {
+      //   setLoading(false)
+      // }
+    }
+
     useEffect( () => {
-      async function fetchUserMovies() {
-        try{
-          const res = await fetch('/base-url/movies/watchlist');
-          const jsonRes = await res.json();
-          setUserMovies(jsonRes.data);
-        } catch (error) {
-          console.log('Error fetching Data: ' +error);
-        } 
-        // finally {
-        //   setLoading(false)
-        // }
-      }
-  
-      fetchUserMovies();
+      fetchUserMovies('/base-url/movies/watchlist');
     }, [])
 
     let isMovies = userMovies.length === 0 ? false : true;
 
     return (
       <>
-        <MovieFilter />
+        <MovieFilter onFilter={fetchUserMovies} />
         {isMovies ?  <CardsContainer 
                     movies = { userMovies } 
                     isHome={false} 
