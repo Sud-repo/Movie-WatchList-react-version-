@@ -57,6 +57,8 @@
 	line-height: 3;
 	box-shadow: 0px 0px 10px 2px #d3ff139e;
 	font-size: 1.1rem;
+	display: flex;
+    justify-content: end;
 }
 
  /* new css for card design*/
@@ -731,4 +733,10 @@ footer .app-title {
 	font-size: 2rem;
 	color: #d3ff13;
 	z-index: 150;
+}
+.navbar-toggler {
+	margin: 0pc 1pc;
+}
+.navbar-toggler:focus {
+	box-shadow: none;
 }
