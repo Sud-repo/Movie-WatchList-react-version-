@@ -1,10 +1,13 @@
 import React from 'react'
 import MovieButton from './MovieButton';
 import { useOutletContext } from 'react-router-dom';
+import { useMovieContext } from '../../context/MovieContext';
 
 function WatchlistButtons(props) {
 
   const { showPopup } = useOutletContext();
+  const { removeFromUserMovie } = useMovieContext();
+
 
   async function removeMovieFromWatchList(icon) {
     try{
@@ -17,11 +20,11 @@ function WatchlistButtons(props) {
         const jsonRes = await res.json();
         if (res.status == 201 || res.status == 202 || res.status == 208) {
             showPopup(props.movieName + ': ' + jsonRes.message, icon)
-            props.onRemove(props.id)
+            removeFromUserMovie(props.id)
         }
     } catch (error) {
         console.log('Error fetching Data: ' +error);
-        showPopup('Error! Please Try Later', '')
+        showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
     }
     //  finally {
     //     setLoading(false)
@@ -30,7 +33,7 @@ function WatchlistButtons(props) {
 
   async function setMovieToWatched(icon) {
     if(props.isDisabled){
-      showPopup(props.movieName + ': Alredy Watched');
+      showPopup(props.movieName + ': Alredy Watched', icon);
       return;
     }
     try{
@@ -47,7 +50,7 @@ function WatchlistButtons(props) {
       }
       } catch (error) {
           console.log('Error fetching Data: ' +error);
-          showPopup('Error! Please Try Later', '')
+          showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
       }
       //  finally {
       //     setLoading(false)

@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react'
 import CardsContainer from '../components/movie/CardsContainer';
 import Empty from '../components/movie/Empty';
 import MovieFilter from '../components/movie/MovieFilter';
+import { useMovieContext } from '../context/MovieContext';
 
 function MyWatchListPage() {
 
-    const [userMovies, setUserMovies] = useState([]);
-
-    function removeFromUserMovie(id) {
-      setUserMovies(userMovies.filter(
-        movie => movie.id != id
-      ))
-    }
+    // Fetching movies is now part of the context state, but you can still call it directly
+    const { userMovies, setUserMovies } = useMovieContext();
 
     async function fetchUserMovies(url) {
       try{
@@ -38,7 +34,6 @@ function MyWatchListPage() {
         {isMovies ?  <CardsContainer 
                     movies = { userMovies } 
                     isHome={false} 
-                    onRemove={removeFromUserMovie}
                     /> 
                     : <Empty/>}
       </>

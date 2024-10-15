@@ -60,7 +60,6 @@ function MovieCard(props) {
                 /> : <WatchlistButtons 
                     id={props.id}
                     movieName={props.movieName}
-                    onRemove={props.onRemove}
                     onWatched={toggleIsWatched}
                     isDisabled={isWatched}
                 />

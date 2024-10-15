@@ -7,6 +7,7 @@ import MyWatchListPage from "./pages/MyWatchListPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AddMoviePage from "./pages/AddMoviePage";
 import LoginPage from "./pages/LoginPage";
+import { MovieProvider } from "./context/MovieContext";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
       </Route>
       <Route path="/" element={<MainLayout />}>
         <Route index element={ <SecureRoute> <HomePage /> </SecureRoute>} />
-        <Route path="watchlist" element= { <SecureRoute> <MyWatchListPage /> </SecureRoute> } />
+        <Route path="watchlist" element= { <SecureRoute> <MovieProvider> <MyWatchListPage /> </MovieProvider> </SecureRoute> } />
         <Route path="add-movie" element= {  <SecureRoute> <AddMoviePage/> </SecureRoute> } />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
