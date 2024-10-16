@@ -61,12 +61,14 @@ function WatchlistButtons(props) {
           name='Remove'
           onButtonClick={removeMovieFromWatchList}
           buttonStyle = 'fa-solid fa-trash fa-beat-fade'
+          isHome={false}
       />
       <MovieButton
           buttonId={'Button-2'} 
           name='Watched'
           onButtonClick={setMovieToWatched}
           buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
+          isHome={false}
       />
     </>
   )

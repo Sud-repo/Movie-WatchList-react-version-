@@ -30,12 +30,14 @@ function HomeButtons(props) {
             name='Watch Later'
             onButtonClick={addMovieToWatchList}
             buttonStyle = 'fa-regular fa-hourglass-half fa-spin'
+            isHome={true}
         />
         <MovieButton
             buttonId={'Button-2'} 
             name='Watched'
             onButtonClick={addMovieToWatchList}
             buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
+            isHome={true}
         />
     </>
   )

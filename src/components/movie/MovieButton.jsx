@@ -1,10 +1,11 @@
 
 function MovieButton(props) {
 
-  function handleClickToAdd() {
+  function handleClickHome() {
     props.onButtonClick(props.name === 'Watch Later' ? true : false, props.buttonStyle)
+    
   }
-  function handleClickToRemove() {
+  function handleClickWatchlist() {
     props.onButtonClick(props.buttonStyle)
   }
 
@@ -13,7 +14,7 @@ function MovieButton(props) {
 
   return (
     <button className={buttonStyle} id={props.buttonId}
-        onClick={isRemove ? handleClickToRemove : handleClickToAdd} >
+        onClick={props.isHome ? handleClickHome : handleClickWatchlist} >
         <i className={props.buttonStyle || ''}></i> &nbsp; {props.name}</button>
   )
 }

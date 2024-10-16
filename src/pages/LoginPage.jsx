@@ -22,11 +22,8 @@ function LoginPage() {
             body: JSON.stringify(requestData),
         });
         let data;
-        try {
-            data = await response.json();
-        } catch (e) {
-            data = { message: 'No response or invalid JSON' };
-        }
+        try { data = await response.json(); } 
+        catch (e) { data = { message: 'No response or invalid JSON' }; }
         if(response.ok) {
             navigate('/');
         }

@@ -761,3 +761,9 @@ footer .app-title {
 		left: 16pc;
 	}
 }
+
+#movieForm i {
+	color: #d3ff13;
+	font-size: 15px; 
+	margin-right: 5px;
+}
