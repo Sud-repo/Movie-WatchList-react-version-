@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MovieButton from './MovieButton';
 import { useOutletContext } from 'react-router-dom';
-import { useMovieContext } from '../../context/MovieContext';
+import { MovieFilterContext } from '../../context/MovieFilterContext';
 
 function WatchlistButtons(props) {
 
   const { showPopup, setLoading } = useOutletContext();
-  const { removeFromUserMovie } = useMovieContext();
+    const removeFromUserMovie = useContext(MovieFilterContext);
 
 
   async function removeMovieFromWatchList(icon) {

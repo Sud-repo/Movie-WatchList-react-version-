@@ -8,6 +8,14 @@ function LoginPage() {
 
     async function loginUser(event, requestData) {
         event.preventDefault();
+        // Get the form element (assuming it's in a form element)
+        const form = event.target.closest('form');
+
+        // Check if the form is valid
+        if (!form.checkValidity()) {
+            form.reportValidity(); // This will show the browser's validation messages
+            return; // Stop the function if the form is invalid
+        }
         try {
             const response = await fetch('/base-url/api/v1/auth/login', {
             method: 'POST',
@@ -16,21 +24,26 @@ function LoginPage() {
             },
             body: JSON.stringify(requestData),
         });
-        const data = await response.json();
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            data = { message: 'No Response or Invalid JSON' };
+        }
         if(response.ok) {
             navigate('/');
         }
         if (response.status === 500) {
-            console.log("errorData", data);
-            throw new Error(errorData.message || 'Internal Server Error');
+            console.log("Error: ", data.message);
+            throw new Error('Internal Server Error');
         }
         if (!response.ok) {
             console.log('Response status:', response.status); 
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok: ' +data.message);
         }
     } catch(error) {
-        console.log(error);
-        alert(error.message || 'Login failed. Please try again.');
+        console.log(error.message);
+        alert('Login failed. Please try again.');
         }
     }
 

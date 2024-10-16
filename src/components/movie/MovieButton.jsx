@@ -14,7 +14,7 @@ function MovieButton(props) {
   return (
     <button className={buttonStyle} id={props.buttonId}
         onClick={isRemove ? handleClickToRemove : handleClickToAdd} >
-        <i className={props.buttonStyle}></i> &nbsp; {props.name}</button>
+        <i className={props.buttonStyle || ''}></i> &nbsp; {props.name}</button>
   )
 }
 
