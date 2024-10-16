@@ -18,6 +18,11 @@ function AddMoviePage() {
 
 	async function addMovie(event) {
 		event.preventDefault();
+		const form = event.target.closest('form');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 		try {
 			setLoading(true) 
 			const response = await fetch('/base-url/watchlist/include-movie', {

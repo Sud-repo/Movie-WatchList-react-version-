@@ -740,3 +740,24 @@ footer .app-title {
 .navbar-toggler:focus {
 	box-shadow: none;
 }
+
+.eye-pos {
+	position: relative;
+	left: 19pc;
+    bottom: 9.5pc;
+}
+@media (max-width: 390px) {
+	.eye-pos {
+		left: 18pc;
+	}
+}
+@media (max-width: 370px) {
+	.eye-pos {
+		left: 17pc;
+	}
+}
+@media (max-width: 350px) {
+	.eye-pos {
+		left: 16pc;
+	}
+}

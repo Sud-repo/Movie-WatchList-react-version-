@@ -8,13 +8,10 @@ function LoginPage() {
 
     async function loginUser(event, requestData) {
         event.preventDefault();
-        // Get the form element (assuming it's in a form element)
         const form = event.target.closest('form');
-
-        // Check if the form is valid
         if (!form.checkValidity()) {
-            form.reportValidity(); // This will show the browser's validation messages
-            return; // Stop the function if the form is invalid
+            form.reportValidity();
+            return;
         }
         try {
             const response = await fetch('/base-url/api/v1/auth/login', {
@@ -28,7 +25,7 @@ function LoginPage() {
         try {
             data = await response.json();
         } catch (e) {
-            data = { message: 'No Response or Invalid JSON' };
+            data = { message: 'No response or invalid JSON' };
         }
         if(response.ok) {
             navigate('/');
