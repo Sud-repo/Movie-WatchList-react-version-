@@ -11,31 +11,34 @@ function MainLayout() {
 
   const [currentPopup, setCurrentPopup] = useState({message: '',icon: ''});
   const [isShowing, setIsShowing] = useState(false);
-  const popupTimeoutRef = useRef(null); // Ref to store the timeout id
+  const popupTimeoutRef = useRef(null);
+  const clearPopupTimeoutRef = useRef(null);
 
   const showPopup = (msg, icon) => {
     if (msg === currentPopup.message) return;
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
     if (isShowing) {
-      setIsShowing(false); // Mark popup as hidden immediately
-      setCurrentPopup({ message: '', icon: '' }); // Clear current popup
+      setIsShowing(false);
+      setCurrentPopup({ message: '', icon: '' });
     }
-      setCurrentPopup({ message: msg, icon: icon });
-      setIsShowing(true);
-    // Set a new timeout to hide the popup after 3 seconds
+    setCurrentPopup({ message: msg, icon: icon });
+    setIsShowing(true);
+
     popupTimeoutRef.current = setTimeout(() => {
-      setIsShowing(false); // Mark popup as hidden
-      setCurrentPopup({message: '',icon: ''}); // Clear current popup after hiding
-    }, 3000); // 3-second duration for popup
+      setIsShowing(false);
+    }, 2500);
+    clearPopupTimeoutRef.current = setTimeout(() => {
+      setCurrentPopup({ message: '', icon: '' });
+    }, 3000);
   };
 
- // useEffect for cleanup on unmount
-  useEffect(() => {
-    return () => {
-      // Cleanup timeout only when the component unmounts
-      if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
-    };
-  }, []); // Empty dependency array ensures this runs only on unmount
+useEffect(() => {
+  return () => {
+    if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
+    if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
+  };
+}, []);
+
 
   const [isLoading, setLoading] = useState(false);
 

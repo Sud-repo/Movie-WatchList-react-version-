@@ -2,18 +2,16 @@ import React, { useState, useEffect, useRef} from 'react'
 
 function PopUp(props) {
 
-  const [isVisible, setIsVisible] = useState(props.show);
+  const [isVisible, setIsVisible] = useState(false);
   const [opacity, setOpacity] = useState(0);
   
   useEffect(() => {
-    let timeoutId; // Declare the timeoutId variable outside of the if-else blocks
-
+    let timeoutId;
     if (props.show) {
       setIsVisible(true);
-      // Delay setting the opacity to 1
       timeoutId = setTimeout(() => {
         setOpacity(1);
-      }, 10);
+      }, 50);
     } else {
       setOpacity(0);
     }
@@ -31,7 +29,7 @@ function PopUp(props) {
 
   const popupStyle = {
     opacity: opacity,
-    transition: 'opacity 1s ease-in-out',
+    transition: 'opacity 0.5s ease-in-out',
     display: isVisible ? 'block' : 'none',
   };
 
