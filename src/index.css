@@ -587,7 +587,6 @@ small {
 }
 
 .popup {
-    display: block; 
     width: 20pc;
     height: auto;
     background-color: #11171c;

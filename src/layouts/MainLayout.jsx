@@ -27,7 +27,7 @@ function MainLayout() {
       setIsShowing(false); // Mark popup as hidden
       setCurrentPopup(null); // Clear current popup after hiding
       setPopupQueue((queue) => queue.slice(1)); // Remove the first item in queue
-    }, 3000); // 3-second duration for popup
+    }, 3500); // 3-second duration for popup
   };
 
   useEffect(() => {
