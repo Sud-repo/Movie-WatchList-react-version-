@@ -19,14 +19,9 @@ function MainLayout() {
     if (isShowing) {
       setIsShowing(false); // Mark popup as hidden immediately
       setCurrentPopup({ message: '', icon: '' }); // Clear current popup
-      setTimeout(() => {
-        setCurrentPopup({ message: msg, icon: icon });
-        setIsShowing(true);
-      }, 100);
-    }else {
-      setCurrentPopup({ message: msg, icon: icon });
-        setIsShowing(true);
     }
+      setCurrentPopup({ message: msg, icon: icon });
+      setIsShowing(true);
     // Set a new timeout to hide the popup after 3 seconds
     popupTimeoutRef.current = setTimeout(() => {
       setIsShowing(false); // Mark popup as hidden
