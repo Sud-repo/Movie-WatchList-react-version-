@@ -611,19 +611,6 @@ small {
 	display: inline;
 	font-size: 1rem;
 }
-.progress-bar-container {
-	position: absolute;
-	top: -12px;
-    left: 0px;
-	margin-top: 10px; 
-	background: white;
-	height: 5px; 
-	width: 100%
-}
-.progress-bar {
-	background: #d3ff13;
-	height: 100%
-}
 
 .form-button {
 	display: block;
