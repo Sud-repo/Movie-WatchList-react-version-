@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Loader({ show }) {
-  const [isVisible, setIsVisible] = useState(show);
+  const [isVisible, setIsVisible] = useState(false);
   const [opacity, setOpacity] = useState(show ? 0.6 : 0);
   
   useEffect(() => {

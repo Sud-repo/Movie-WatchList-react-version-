@@ -17,6 +17,7 @@ function MainLayout() {
   const showPopup = (msg, icon) => {
     if (msg === currentPopup.message) return;
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
+    if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
     if (isShowing) {
       setIsShowing(false);
       setCurrentPopup({ message: '', icon: '' });
