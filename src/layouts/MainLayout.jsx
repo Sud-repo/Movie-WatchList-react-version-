@@ -18,12 +18,12 @@ function MainLayout() {
     if (msg === currentPopup.message) return;
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
     if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
-    if (isShowing) {
-      setIsShowing(false);
-      setCurrentPopup({ message: '', icon: '' });
+    if (!isShowing) {
+      setIsShowing(true);
+      // setCurrentPopup({ message: '', icon: '' });
     }
     setCurrentPopup({ message: msg, icon: icon });
-    setIsShowing(true);
+    // setIsShowing(true);
 
     popupTimeoutRef.current = setTimeout(() => {
       setIsShowing(false);
@@ -50,11 +50,11 @@ useEffect(() => {
 
         <Outlet context={{ showPopup, setLoading }} />
 
-        <Footer title= { import.meta.env.VITE_APP_NAME } />
+        <PopUp message={currentPopup.message} 
+          icon={currentPopup.icon} 
+          show={isShowing} />
 
-          <PopUp message={currentPopup.message} 
-            icon={currentPopup.icon} 
-            show={isShowing} />
+        <Footer title= { import.meta.env.VITE_APP_NAME } />
 
         <Loader show={isLoading} />
     </>
