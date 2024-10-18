@@ -518,7 +518,7 @@ small {
 }
 
 .button-effect:hover {
-	transform: scale(1.08);
+	transform: scale(1.1);
 	color: #d3ff13;
 	border-color: #d3ff13;
 }
@@ -685,13 +685,16 @@ footer .app-title {
 .home-b {
 	font-size: 1.2rem;
     color: #d3ff13;
-    border: 4px inset black;
+    border: 4px outset black;
     border-radius: 2pc;
     padding: 10px 25px;
     text-decoration: none;
+	transition: all 0.3s;
 }
 .home-b:hover{
-	background-color: black;
+	background-color: #141e30;
+	transform: scale(1.1);
+	border: 4px inset black;
 }
 
 .nf-p {
