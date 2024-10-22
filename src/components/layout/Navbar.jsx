@@ -22,7 +22,7 @@ function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark main-header">
-		{/* <a className="navbar-brand nav-title" href="/movies/list">{ props.title }</a> */}
+		{/* // add Logo here <a className="navbar-brand nav-title" href="/movies/list">{ props.title }</a> */}
 		<button  className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" ref={navbarTogglerRef}>
 			<span className="navbar-toggler-icon"></span>
