@@ -9,12 +9,12 @@ function Footer(props) {
 		<div className="container">
 		<div className="row-title"> { props.title } </div>
 		<div className="row">
-			<div className="col-lg-12" style={{textAlign: "start", margin: "20px"}}>
+			<div className="col-lg-12" style={{textAlign: "start", margin: "15px 0px", padding:"0px"}}>
 				<h2 style={{fontSize: "1.5rem", textDecoration: "underline"}}>Quick Access</h2>
-				<ul style={{padding: "0px 20px"}}>
-					<li className="footer-list" ><Link className="footer-link" to="/">Home</Link></li>
-					<li className="footer-list"><Link className="footer-link" to="/watchlist">My WatchList</Link></li>
-					<li className="footer-list"><Link className="footer-link" to="/add-movie">Add Movie</Link> </li>
+				<ul style={{padding: "10px"}}>
+					<li className="footer-list" ><Link className="footer-link" to="/"> <i class="fa-solid fa-angle-right"></i> Home</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/watchlist"> <i class="fa-solid fa-angle-right"></i> My WatchList</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/add-movie"> <i class="fa-solid fa-angle-right"></i> Add Movie</Link> </li>
 				</ul>
 			</div>
 		</div>
