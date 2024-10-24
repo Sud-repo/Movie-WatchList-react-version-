@@ -15,10 +15,11 @@ function HomePage() {
       try{
         setLoading(true)
         const res = await fetch('/base-url/movies');
+        if (!res.ok) throw new Error(`Status - ${res.status} ${res.statusText}`);
         const jsonRes = await res.json();
         setMovies(jsonRes.data);
       } catch (error) {
-        console.log('Error fetching Data: ' +error);
+        console.error(error);
         setMovies(jsonMovies);
       } finally {
         setLoading(false)

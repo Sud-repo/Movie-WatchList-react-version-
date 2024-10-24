@@ -18,10 +18,11 @@ function MyWatchListPage() {
       try{
         setLoading(true);
         const res = await fetch(url);
+        if (!res.ok) throw new Error(`Status - ${res.status} ${res.statusText}`);
         const jsonRes = await res.json();
         setUserMovies(jsonRes.data);
       } catch (error) {
-        console.log('Error fetching Data: ' +error);
+        console.error(error);
       } finally {
         setLoading(false)
       }

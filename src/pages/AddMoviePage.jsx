@@ -42,21 +42,20 @@ function AddMoviePage() {
         try { data = await response.json(); } 
 		catch (e) { data = { message: 'No response or invalid JSON' }; }
         if(response.ok) {
-			console.log('okkk')
 			showPopup(data.message, 'fa-solid fa-film')	
 			form.reset();
 			setFormData({movieURL: '', movieLanguage: ''})
         }
         if (response.status === 500) {
-            console.log("Error: ", data.message);
+            console.error("Error: ", data.message);
             throw new Error('Internal Server Error');
         }
         if (!response.ok) {
-            console.log('Response status:', response.status); 
+            console.error('Response status:', response.status); 
             throw new Error('Network response was not ok: ' +data.message);
         }
 		} catch(error) {
-			console.log(error);
+			console.error(error);
 			showPopup(error.message, 'fa-solid fa-circle-exclamation')
 		} finally {
 			setLoading(false)

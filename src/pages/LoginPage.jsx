@@ -28,15 +28,15 @@ function LoginPage() {
             navigate('/');
         }
         if (response.status === 500) {
-            console.log("Error: ", data.message);
+            console.error("Error: ", data.message);
             throw new Error('Internal Server Error');
         }
         if (!response.ok) {
-            console.log('Response status:', response.status); 
+            console.error('Response status:', response.status); 
             throw new Error('Network response was not ok: ' +data.message);
         }
     } catch(error) {
-        console.log(error.message);
+        console.error(error.message);
         alert('Login failed. Please try again.');
         }
     }
