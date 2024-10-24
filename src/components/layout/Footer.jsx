@@ -1,8 +1,11 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer(props) {
 
     let year = new Date().getFullYear();
+	console.log("Footer");
+	
 
     return (
         <footer className="text-center">
@@ -12,9 +15,9 @@ function Footer(props) {
 			<div className="col-lg-12" style={{textAlign: "start", margin: "15px 0px", padding:"0px"}}>
 				<h2 style={{fontSize: "1.5rem", textDecoration: "underline"}}>Quick Access</h2>
 				<ul style={{padding: "10px"}}>
-					<li className="footer-list" ><Link className="footer-link" to="/"> <i class="fa-solid fa-angle-right"></i> Home</Link></li>
-					<li className="footer-list"><Link className="footer-link" to="/watchlist"> <i class="fa-solid fa-angle-right"></i> My WatchList</Link></li>
-					<li className="footer-list"><Link className="footer-link" to="/add-movie"> <i class="fa-solid fa-angle-right"></i> Add Movie</Link> </li>
+					<li className="footer-list" ><Link className="footer-link" to="/"> <i className="fa-solid fa-angle-right"></i> Home</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/watchlist"> <i className="fa-solid fa-angle-right"></i> My WatchList</Link></li>
+					<li className="footer-list"><Link className="footer-link" to="/add-movie"> <i className="fa-solid fa-angle-right"></i> Add Movie</Link> </li>
 				</ul>
 			</div>
 		</div>
@@ -27,4 +30,4 @@ function Footer(props) {
     )
 }
 
-export default Footer;
+export default React.memo(Footer);

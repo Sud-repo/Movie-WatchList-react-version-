@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 function Navbar() {
-
+	console.log("Navbar");
 	const linkStyle = ({ isActive }) => isActive ? "nav-link active-link" : "nav-link";
 
 	const location = useLocation();
@@ -44,4 +44,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default React.memo(Navbar);
