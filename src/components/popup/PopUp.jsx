@@ -41,4 +41,4 @@ function PopUp(props) {
   )
 }
 
-export default PopUp
+export default React.memo(PopUp);

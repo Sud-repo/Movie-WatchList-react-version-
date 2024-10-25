@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Header from "../components/layout/Header"
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
@@ -14,7 +14,7 @@ function MainLayout() {
   const popupTimeoutRef = useRef(null);
   const clearPopupTimeoutRef = useRef(null);
 
-  const showPopup = (msg, icon) => {
+  const showPopup = useCallback((msg, icon) => {
     if (msg === currentPopup.message) return;
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
     if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
@@ -31,7 +31,7 @@ function MainLayout() {
     clearPopupTimeoutRef.current = setTimeout(() => {
       setCurrentPopup({ message: '', icon: '' });
     }, 3000);
-  };
+  }, [currentPopup.message, isShowing]);
 
 useEffect(() => {
   return () => {
