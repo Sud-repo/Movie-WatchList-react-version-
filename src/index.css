@@ -3,37 +3,70 @@
 
 
 .loader {
- 	width: 150px;
-	height: 30px;
-	background: linear-gradient(#cbcbcb 0 0) left -40px top 0 / 40px 100% no-repeat #141e30;
-	mask: conic-gradient(from 90deg at 5px 5px, #0000 25%, #000 0) 0 0 / calc((100% - 5px) / 5) calc(100% - 5px);
-	-webkit-mask: conic-gradient(from 90deg at 5px 5px, #0000 25%, #000 0) 0 0 / calc((100% - 5px) / 5) calc(100% - 5px);
-	animation: l10 1s infinite linear;
+	width: 50px;
+	aspect-ratio: 1;
+	display: grid;
+	position: fixed;
+	left: 50%;
+    top: 50%;
 	z-index: 210;
-	display: flex;
-	
-	position: fixed;
-	/*top: 50%;
-	right: 45%*/;
-}
-@keyframes l10 {
-  100% {background-position: right -40px top 0}
-}
+	border: 4px solid #0000;
+	border-radius: 50%;
+	border-color: #ccc #0000;
+	animation: l16 1s infinite linear;
+  }
+  .loader::before,
+  .loader::after {    
+	content: "";
+	grid-area: 1/1;
+	margin: 2px;
+	border: inherit;
+	border-radius: 50%;
+  }
+  .loader::before {
+	border-color: #f03355 #0000;
+	animation: inherit; 
+	animation-duration: .5s;
+	animation-direction: reverse;
+  }
+  .loader::after {
+	margin: 8px;
+  }
+  @keyframes l16 { 
+	100%{transform: rotate(1turn)}
+  }
 
-.loader-bg {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-	position: fixed;
-	z-index: 200;
-	background-color: #141e30;
-	opacity: 0.9;
-    transition: opacity 0.5s ease;
-}
+  /* 
+.loader {
+	width: 150px;
+   height: 30px;
+   background: linear-gradient(#cbcbcb 0 0) left -40px top 0 / 40px 100% no-repeat #141e30;
+   mask: conic-gradient(from 90deg at 5px 5px, #0000 25%, #000 0) 0 0 / calc((100% - 5px) / 5) calc(100% - 5px);
+   -webkit-mask: conic-gradient(from 90deg at 5px 5px, #0000 25%, #000 0) 0 0 / calc((100% - 5px) / 5) calc(100% - 5px);
+   animation: l10 1s infinite linear;
+   z-index: 210;
+   display: flex;
+   position: fixed;
+  }
+  @keyframes l10 {
+   100% {background-position: right -40px top 0}
+  }
+  
+  .loader-bg {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+   position: fixed;
+   z-index: 200;
+   background-color: #141e30;
+   opacity: 0.9;
+	 transition: opacity 0.5s ease;
+  } 
+  */
 
 .nav-link {
 	display: flex;
