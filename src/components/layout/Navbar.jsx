@@ -1,24 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
-
+	
 	const linkStyle = ({ isActive }) => isActive ? "nav-link active-link" : "nav-link";
-
-	const location = useLocation();
 	const navbarTogglerRef = useRef(null);
 
-	const closeNavbar = () => {
+	function closeNavbar() {
 		const navbarCollapse = document.getElementById('navbarNav');
-		if (navbarCollapse.classList.contains('show')) {
-		navbarTogglerRef.current.click();
-		}
-	};
-
-	useEffect(() => {
-		closeNavbar();
-	}, [location]);
-
+		if (navbarCollapse.classList.contains('show')) navbarTogglerRef.current.click();
+	}
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark main-header">
@@ -29,14 +20,14 @@ function Navbar() {
 		</button>
 		<div className="collapse navbar-collapse nav-align" id="navbarNav">
 			<ul className="navbar-nav">
-				<li className="nav-item active">
-					<NavLink className={linkStyle} to="/">Movies</NavLink>
+				<li className="nav-item">
+					<NavLink className={linkStyle} to="/" onClick={closeNavbar}>Movies</NavLink>
 				</li>
 				<li className="nav-item">
-					<NavLink className={linkStyle} to="/watchlist">WatchList</NavLink>
+					<NavLink className={linkStyle} to="/watchlist" onClick={closeNavbar}>WatchList</NavLink>
 				</li>
 				<li className="nav-item">
-					<NavLink className={linkStyle} to="/add-movie">Add Movie</NavLink>
+					<NavLink className={linkStyle} to="/add-movie" onClick={closeNavbar}>Add Movie</NavLink>
 				</li>
 			</ul>
 		</div>
