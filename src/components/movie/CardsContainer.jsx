@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import MovieCard from './MovieCard';
 
 
@@ -12,7 +12,7 @@ function CardsContainer(props) {
                 return <MovieCard 
                     key = { isNaN(movie.idMovieInfo) ? atob(movie.idMovieInfo) : movie.idMovieInfo}
                     id = {movie.idMovieInfo}
-                    movieName = {movie.moiveName}
+                    movieName = {movie.movieName}
                     description = {movie.description}
                     year = {movie.releaseYear}
                     duration = {movie.runtime}

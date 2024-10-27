@@ -39,23 +39,18 @@ useEffect(() => {
   };
 }, []);
 
-
-  const [isLoading, setLoading] = useState(false);
-
   return (
     <>
         <Header title={ import.meta.env.VITE_APP_NAME } />
         <Navbar />
 
-        <Outlet context={{ showPopup, setLoading }} />
+        <Outlet context={{ showPopup }} />
 
         <PopUp message={currentPopup.message} 
           icon={currentPopup.icon} 
           show={isShowing} />
 
         <Footer title= { import.meta.env.VITE_APP_NAME } />
-
-        <div className="loader" style={{display: isLoading ? 'grid' : 'none'}}></div>
     </>
   )
 }

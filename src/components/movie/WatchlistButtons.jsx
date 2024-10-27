@@ -5,13 +5,13 @@ import { MovieFilterContext } from '../../context/MovieFilterContext';
 
 function WatchlistButtons(props) {
 
-  const { showPopup, setLoading } = useOutletContext();
+  const { showPopup } = useOutletContext();
     const removeFromUserMovie = useContext(MovieFilterContext);
 
 
   async function removeMovieFromWatchList(icon) {
     try{
-        setLoading(true);
+      props.showLoading(true);
         const res = await fetch(`/base-url/movies/remove/${props.id}`, {
             method: 'DELETE',
             headers: {
@@ -26,9 +26,7 @@ function WatchlistButtons(props) {
     } catch (error) {
         console.log('Error fetching Data: ' +error);
         showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
-    } finally {
-        setLoading(false)
-    }
+    } finally {props.showLoading(false)}
   }
 
   async function setMovieToWatched(icon) {
@@ -37,6 +35,7 @@ function WatchlistButtons(props) {
       return;
     }
     try{
+      props.showLoading(true);
       const res = await fetch(`/base-url/movies/watched/${props.id}`, {
           method: 'PUT',
           headers: {
@@ -48,9 +47,11 @@ function WatchlistButtons(props) {
           showPopup(props.movieName + ': ' + jsonRes.message, icon)
           props.onWatched()
       }
+      props.showLoading(false);
       } catch (error) {
           console.log('Error fetching Data: ' +error);
           showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
+          props.showLoading(false);
       }
   }
 

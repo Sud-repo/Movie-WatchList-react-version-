@@ -6,6 +6,7 @@ function HomeButtons(props) {
     const { showPopup } = useOutletContext();
 
     async function addMovieToWatchList(isWatchLater, icon) {
+        props.showLoading(true);
         const param = isWatchLater ? "is-wl=true" : "is-w=true";
         try{
             const res = await fetch(`/base-url/movies/user-movie?id=${props.id}&${param}`, {
@@ -21,7 +22,7 @@ function HomeButtons(props) {
         } catch (error) {
             console.log('Error fetching Data: ' +error);
             showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
-        }
+        } finally{ props.showLoading(false); }
     }
   return (
     <>
