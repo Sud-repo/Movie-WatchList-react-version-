@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function MovieFilter(props) {
-
+console.log("filter")
     function applyFilter(event) {
         const filterValue = event.target.value;
 
@@ -34,4 +34,4 @@ function MovieFilter(props) {
   )
 }
 
-export default MovieFilter
+export default React.memo(MovieFilter);

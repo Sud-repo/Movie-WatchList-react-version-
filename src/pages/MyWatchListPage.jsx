@@ -11,7 +11,7 @@ function MyWatchListPage() {
   const [userMovies, setUserMovies] = useState(null);
 
   const removeFromUserMovie = (id) => {
-    setUserMovies(userMovies.filter(movie => movie.id !== id));
+    setUserMovies(userMovies.filter(movie => movie.idMovieInfo !== id));
   };
 
     async function fetchUserMovies(url) {
