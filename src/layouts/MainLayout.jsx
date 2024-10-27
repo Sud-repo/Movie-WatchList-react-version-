@@ -4,7 +4,6 @@ import Header from "../components/layout/Header"
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
 import PopUp from '../components/popup/PopUp'
-import Loader from '../components/Loader'
 
 
 function MainLayout() {
@@ -56,7 +55,7 @@ useEffect(() => {
 
         <Footer title= { import.meta.env.VITE_APP_NAME } />
 
-        <Loader show={isLoading} />
+        <div className="loader" style={{display: isLoading ? 'grid' : 'none'}}></div>
     </>
   )
 }
