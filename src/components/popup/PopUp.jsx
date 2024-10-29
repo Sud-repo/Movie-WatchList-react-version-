@@ -11,7 +11,7 @@ function PopUp(props) {
       setIsVisible(true);
       timeoutId = setTimeout(() => {
         setOpacity(1);
-      }, 50);
+      }, 10);
     } else {
       setOpacity(0);
     }

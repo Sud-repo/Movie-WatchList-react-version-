@@ -8,34 +8,24 @@ import PopUp from '../components/popup/PopUp'
 
 function MainLayout() {
 
-  const [currentPopup, setCurrentPopup] = useState({message: '',icon: ''});
-  const [isShowing, setIsShowing] = useState(false);
+  const [currentPopup, setCurrentPopup] = useState({message: '',icon: '', show: false});
   const popupTimeoutRef = useRef(null);
-  const clearPopupTimeoutRef = useRef(null);
 
-  const showPopup = useCallback((msg, icon) => {
-    if (msg === currentPopup.message) return;
+  const showPopup = useCallback((message, icon) => {
+    if (message === currentPopup.message) return;
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
-    if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
-    if (!isShowing) {
-      setIsShowing(true);
-      // setCurrentPopup({ message: '', icon: '' });
-    }
-    setCurrentPopup({ message: msg, icon: icon });
-    // setIsShowing(true);
+    setCurrentPopup({ message, icon, show:true });
 
     popupTimeoutRef.current = setTimeout(() => {
-      setIsShowing(false);
+      setCurrentPopup(prev => {
+        return { ...prev, show:false }
+    });
     }, 2500);
-    clearPopupTimeoutRef.current = setTimeout(() => {
-      setCurrentPopup({ message: '', icon: '' });
-    }, 3000);
-  }, [currentPopup.message, isShowing]);
+  }, [currentPopup.message]);
 
 useEffect(() => {
   return () => {
     if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
-    if (clearPopupTimeoutRef.current) clearTimeout(clearPopupTimeoutRef.current);
   };
 }, []);
 
@@ -48,7 +38,7 @@ useEffect(() => {
 
         <PopUp message={currentPopup.message} 
           icon={currentPopup.icon} 
-          show={isShowing} />
+          show={currentPopup.show} />
 
         <Footer title= { import.meta.env.VITE_APP_NAME } />
     </>
