@@ -1,3 +1,4 @@
+import React from "react";
 
 function MovieButton(props) {
 
@@ -19,4 +20,4 @@ function MovieButton(props) {
   )
 }
 
-export default MovieButton
+export default React.memo(MovieButton);

@@ -33,4 +33,4 @@ function CardsContainer(props) {
   )
 }
 
-export default CardsContainer
+export default React.memo(CardsContainer);

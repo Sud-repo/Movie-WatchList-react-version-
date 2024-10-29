@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useCallback, useContext } from 'react'
 import MovieButton from './MovieButton';
 import { useOutletContext } from 'react-router-dom';
 import { MovieFilterContext } from '../../context/MovieFilterContext';
@@ -9,7 +9,7 @@ function WatchlistButtons(props) {
     const removeFromUserMovie = useContext(MovieFilterContext);
 
 
-  async function removeMovieFromWatchList(icon) {
+  const removeMovieFromWatchList = useCallback(async (icon) => {
     try{
       props.showLoading(true);
         const res = await fetch(`/base-url/movies/remove/${props.id}`, {
@@ -27,9 +27,9 @@ function WatchlistButtons(props) {
         console.log('Error fetching Data: ' +error);
         showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
     } finally {props.showLoading(false)}
-  }
+  }, [props.id, props.movieName]);
 
-  async function setMovieToWatched(icon) {
+    const setMovieToWatched = useCallback(async (icon) => {
     if(props.isDisabled){
       showPopup(props.movieName + ': Alredy Watched', icon);
       return;
@@ -53,7 +53,7 @@ function WatchlistButtons(props) {
           showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
           props.showLoading(false);
       }
-  }
+    }, [props.id, props.movieName]);
 
   return (
     <>

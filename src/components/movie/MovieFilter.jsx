@@ -1,7 +1,7 @@
 import React from 'react';
 
 function MovieFilter(props) {
-console.log("filter")
+
     function applyFilter(event) {
         const filterValue = event.target.value;
 
