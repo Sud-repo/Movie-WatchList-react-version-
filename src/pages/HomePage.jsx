@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import CardsContainer from "../components/movie/CardsContainer";
-import jsonMovies from "../components/movie/Movies";
 import Empty from '../components/movie/Empty';
-import { useOutletContext } from 'react-router-dom';
 import Loader from '../components/Loader'
 
 
