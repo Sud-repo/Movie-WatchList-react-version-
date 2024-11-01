@@ -34,7 +34,7 @@ function MyWatchListPage() {
     return (
       <MovieFilterContext.Provider value={removeFromUserMovie}>
         <MovieFilter onFilter={fetchUserMovies} />
-        {userMovies == null ? <Loader /> : userMovies.length > 0 ? ( <CardsContainer 
+        {userMovies == null ? <> <div className='Empty-space'></div> <Loader /> </> : userMovies.length > 0 ? ( <CardsContainer 
                     movies = { userMovies } 
                     isHome={false} 
                     /> )

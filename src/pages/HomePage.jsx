@@ -26,7 +26,7 @@ function HomePage() {
 
   return (
     <>
-      {movies === null ? <Loader /> : movies.length > 0 ? (
+      {movies === null ? <> <div className='Empty-space'></div> <Loader /> </> : movies.length > 0 ? (
         <CardsContainer movies={movies} isHome={true} />
       ) : (
         <Empty />
