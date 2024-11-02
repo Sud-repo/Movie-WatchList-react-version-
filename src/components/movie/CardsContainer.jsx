@@ -10,7 +10,7 @@ function CardsContainer(props) {
 	  	<div className="row">
             {props.movies.map(movie => {
                 return <MovieCard 
-                    key = { isNaN(movie.idMovieInfo) ? atob(movie.idMovieInfo) : movie.idMovieInfo}
+                    key = {atob(movie.idMovieInfo)}
                     id = {movie.idMovieInfo}
                     movieName = {movie.movieName}
                     description = {movie.description}
