@@ -26,6 +26,7 @@ function MovieCard(props) {
                 movieRating = {props.movieRating}
                 genre = {props.genre}
              />
+        {isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
         </div>
             <div className="mr-grid action-row">
                 {props.isHome ? <HomeButtons 
@@ -41,7 +42,6 @@ function MovieCard(props) {
                 />
                 } 
             </div>
-        {isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
     </div>
     {isLoading && <Loader />}
     </>)

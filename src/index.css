@@ -83,6 +83,7 @@
   .row-title {
 	text-align: start; 
 	justify-content: start; 
+	align-items: center;
 	font-size: 2rem; 
 	font-weight: 700; 
 	color: black; 
@@ -92,7 +93,7 @@
   .flex-mywidth {
 	  flex: 1 0 19rem;
 	  max-width: 19rem;
-	  min-width: 18rem;
+	  /* min-width: 18rem; */
 	  height: 28pc;
 	  width: auto;
   }
@@ -490,7 +491,7 @@ small {
 }
 
 #Button-1 {
-	margin-left: 25px;
+	margin-left: 23px;
 }
 .button-m {
 	margin: 5px 5px;
@@ -725,7 +726,7 @@ footer .app-title {
 }
 .watched-icon {
 	position: relative;
-	bottom: 29pc;
+	top: -24pc;
 	left: 14.5pc;
 	font-size: 2rem;
 	color: #d3ff13;
