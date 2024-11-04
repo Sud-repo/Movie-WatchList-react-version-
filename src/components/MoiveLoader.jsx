@@ -8,4 +8,4 @@ function MoiveLoader() {
   )
 }
 
-export default React.memo(MoiveLoader);
+export default MoiveLoader;

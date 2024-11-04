@@ -8,4 +8,4 @@ function Header({title}) {
 	</header>)
 }
 
-export default React.memo(Header);
+export default Header;

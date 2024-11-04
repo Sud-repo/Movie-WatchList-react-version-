@@ -34,4 +34,4 @@ function MovieFilter(props) {
   )
 }
 
-export default React.memo(MovieFilter);
+export default MovieFilter;

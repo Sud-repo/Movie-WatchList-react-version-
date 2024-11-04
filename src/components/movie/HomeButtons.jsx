@@ -45,4 +45,4 @@ function HomeButtons(props) {
   )
 }
 
-export default React.memo(HomeButtons);
+export default HomeButtons;

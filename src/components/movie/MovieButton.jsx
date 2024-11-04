@@ -10,14 +10,12 @@ function MovieButton(props) {
     props.onButtonClick(props.buttonStyle)
   }
 
-  const isRemove = props.name === 'Remove';
-  const buttonStyle = isRemove ? "button-effect button-m button-del" : "button-effect button-m";
-
   return (
-    <button className={buttonStyle} id={props.buttonId}
+    <button className={`button-effect button-m ${props.name === 'Remove' ? 'button-del' : ''}`} 
+        id={props.buttonId}
         onClick={props.isHome ? handleClickHome : handleClickWatchlist} >
         <i className={props.buttonStyle || ''}></i> &nbsp; {props.name}</button>
   )
 }
 
-export default React.memo(MovieButton);
+export default MovieButton;
