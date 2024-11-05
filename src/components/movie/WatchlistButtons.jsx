@@ -1,15 +1,19 @@
-import React, { useCallback, useContext } from 'react'
+import React, {useState, useContext } from 'react'
 import MovieButton from './MovieButton';
 import { useOutletContext } from 'react-router-dom';
 import { MovieFilterContext } from '../../context/MovieFilterContext';
 
 function WatchlistButtons(props) {
 
+  const [isWatched, setIsWatched] = useState(props.isDisabled);
+  function toggleIsWatched() {
+    setIsWatched(prev => !prev);
+}
   const { showPopup } = useOutletContext();
     const removeFromUserMovie = useContext(MovieFilterContext);
 
 
-  const removeMovieFromWatchList = useCallback(async (icon) => {
+  const removeMovieFromWatchList = async (icon) => {
     try{
       props.showLoading(true);
         const res = await fetch(`/base-url/movies/remove/${props.id}`, {
@@ -27,10 +31,10 @@ function WatchlistButtons(props) {
         console.log('Error fetching Data: ' +error);
         showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
     } finally {props.showLoading(false)}
-  }, [props.id, props.movieName]);
+  }
 
-    const setMovieToWatched = useCallback(async (icon) => {
-    if(props.isDisabled){
+    const setMovieToWatched = async (icon) => {
+    if(isWatched){
       showPopup(props.movieName + ': Alredy Watched', icon);
       return;
     }
@@ -45,7 +49,7 @@ function WatchlistButtons(props) {
       const jsonRes = await res.json();
       if (res.status == 201 || res.status == 202 || res.status == 208) {
           showPopup(props.movieName + ': ' + jsonRes.message, icon)
-          props.onWatched()
+          toggleIsWatched()
       }
       props.showLoading(false);
       } catch (error) {
@@ -53,10 +57,11 @@ function WatchlistButtons(props) {
           showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
           props.showLoading(false);
       }
-    }, [props.id, props.movieName]);
+    }
 
   return (
     <>
+    {isWatched && <i className='fa-solid fa-circle-check watched-icon'></i>}
       <MovieButton 
           buttonId={'Button-1'} 
           name='Remove'
@@ -64,13 +69,13 @@ function WatchlistButtons(props) {
           buttonStyle = 'fa-solid fa-trash fa-beat-fade'
           isHome={false}
       />
-      <MovieButton
+      {!isWatched && <MovieButton
           buttonId={'Button-2'} 
           name='Watched'
           onButtonClick={setMovieToWatched}
           buttonStyle = 'fa-solid fa-circle-check fa-beat-fade'
           isHome={false}
-      />
+      />}
     </>
   )
 }
