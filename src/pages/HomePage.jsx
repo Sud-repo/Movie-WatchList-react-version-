@@ -8,7 +8,7 @@ import MoiveLoader from '../components/MoiveLoader';
 
 function HomePage() {
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
   const hasMore = useRef(true);
   const pageNo = useRef(0);
   const initialFetchDone = useRef(false);
@@ -26,17 +26,21 @@ function HomePage() {
       if (!res.ok) throw new Error(`Status - ${res.status} ${res.statusText}`);
       const jsonRes = await res.json();
       if (jsonRes.isLast) hasMore.current =false;
-      if (jsonRes.data !== null) setMovies((prevMovies) => [...prevMovies, ...jsonRes.data]);
+      if (jsonRes.data !== null) setMovies((prevMovies) => {
+        // if (prevMovies != null) 
+          [...prevMovies, ...jsonRes.data]
+      });
       pageNo.current = pageNo.current+1;
     } catch (error) {
       console.error(error);
+      setMovies([]);
       hasMore.current =false;
     }
   }
 
   return (
     <>
-      {movies.length === 0 && initialFetchDone ? <> 
+      {movies === null ? <> 
           <div className='Empty-space'></div> <Loader /> 
         </> : movies.length > 0 ? (
           <InfiniteScroll
