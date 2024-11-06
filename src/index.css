@@ -93,14 +93,14 @@
   .flex-mywidth {
 	  flex: 1 0 19rem;
 	  max-width: 19rem;
-	  /* min-width: 18rem; */
+	  min-width: 18rem;
 	  height: 28pc;
 	  width: auto;
   }
 @media (max-width: 1245px) {
   .flex-mywidth {
     flex: 1 0 19rem;
-    max-width: 22rem;
+    max-width: 20rem;
   }
 }
   
@@ -115,7 +115,6 @@
     margin: 20px 0px;
     border: 1px solid black;
     overflow: hidden;
-    cursor: pointer;
     position: relative;
     color: #f0f0f0;
     box-shadow: 0 0px 20px 5px rgb(207, 207, 207, 0.2);
@@ -725,9 +724,9 @@ footer .app-title {
 	}
 }
 .watched-icon {
-	position: relative;
-	top: -24pc;
-	left: 14.5pc;
+	position: absolute;
+    top: -20pc;
+    left: 1pc;
 	font-size: 2rem;
 	color: #d3ff13;
 	z-index: 150;

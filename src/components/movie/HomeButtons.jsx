@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import MovieButton from './MovieButton'
 import { useOutletContext } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ function HomeButtons(props) {
 
     const { showPopup } = useOutletContext();
 
-    const addMovieToWatchList = useCallback(async (isWatchLater, icon) => {
+    const addMovieToWatchList = async (isWatchLater, icon) => {
         props.showLoading(true);
         const param = isWatchLater ? "is-wl=true" : "is-w=true";
         try{
@@ -24,7 +24,7 @@ function HomeButtons(props) {
             console.log('Error fetching Data: ' +error);
             showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
         } finally{ props.showLoading(false); }
-    }, [props.id, props.movieName]);
+    }
   return (
     <>
         <MovieButton 
