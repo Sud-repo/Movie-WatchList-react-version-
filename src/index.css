@@ -41,6 +41,7 @@
 
 .nav-link {
 	display: flex;
+	justify-content: center;
 	padding: 0.5rem 1rem !important;
 }
 .nav-link:hover {
@@ -101,6 +102,11 @@
   .flex-mywidth {
     flex: 1 0 19rem;
     max-width: 20rem;
+  }
+}
+@media (max-width: 631px) {
+  .flex-mywidth {
+    max-width: 22rem;
   }
 }
   

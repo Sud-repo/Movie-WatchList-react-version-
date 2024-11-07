@@ -48,7 +48,7 @@ function HomePage() {
           next={fetchMovies}
           hasMore={hasMore.current}
           loader={<MoiveLoader />}
-          endMessage={<div>End</div>}
+          // endMessage={<div>End</div>}
         >
           <CardsContainer movies={movies} isHome={true} />
         </InfiniteScroll>
