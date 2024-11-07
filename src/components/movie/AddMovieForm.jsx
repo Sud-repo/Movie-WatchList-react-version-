@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 
 function AddMovieForm({ onFormSubmit }) {
 
-    const [formData, setFormData] = useState({
-		movieURL: '',
-		movieLanguage: '',
-	})
+		const movieURLRef = useRef();
+		const movieLanguageRef = useRef();
 
-	function handleChange(event) {
-		let {name, value} = event.target;
-		setFormData(prev => {
-			return { ...prev, [name]: value }
-		});
-	}
+	// function handleChange(event) {
+	// 	let {name, value} = event.target;
+	// 	setFormData(prev => {
+	// 		return { ...prev, [name]: value }
+	// 	});
+	// }
 
     function handleSubmit(e) {
-        onFormSubmit(e, formData);
-        setFormData({movieURL: '', movieLanguage: ''});
+        onFormSubmit(e, movieURLRef.current.value, movieLanguageRef.current.value);
+        // setFormData({movieURL: '', movieLanguage: ''});
     }
 
   return (
@@ -26,7 +24,7 @@ function AddMovieForm({ onFormSubmit }) {
 			<div className="form-group">
 				<i className="fa-solid fa-film fa-bounce" ></i>
 				<label htmlFor="movie-url">Movie URL :</label>
-				<input onChange={handleChange}
+				<input ref={movieURLRef}
 						type="text" 
 						className="form-control mb-4" 
 						id="movie-url" 
@@ -37,8 +35,8 @@ function AddMovieForm({ onFormSubmit }) {
 			<div className="form-group">
 				<i className="fa-solid fa-language fa-bounce" ></i>
 				<label htmlFor="movie-language">Movie Language :</label>
-				<select onChange={handleChange} value={formData.movieLanguage} placeholder="Enter Movie Language" className="form-control mb-4" name="movieLanguage" id="movie-language" required>
-					<option disabled value="" >Enter Movie Language</option>
+				<select ref={movieLanguageRef} placeholder="Enter Movie Language" className="form-control mb-4" name="movieLanguage" id="movie-language" required>
+					<option hidden value='' >Enter Movie Language</option>
 					<option >English</option>
 					<option>Tamil</option>
 					<option>Kannada</option>

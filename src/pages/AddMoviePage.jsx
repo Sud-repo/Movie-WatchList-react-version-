@@ -8,7 +8,7 @@ function AddMoviePage() {
 	const { showPopup } = useOutletContext();
 	const [isLoading, setLoading] = useState(false);
 
-	async function addMovie(event, formData) {
+	async function addMovie(event, movieURL, movieLanguage) {
 		event.preventDefault();
 		const form = event.target.closest('form');
         if (!form.checkValidity()) {
@@ -22,7 +22,7 @@ function AddMoviePage() {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(formData)
+			body: JSON.stringify({ movieURL, movieLanguage})
 		})
 		let data;
         try { data = await response.json(); } 

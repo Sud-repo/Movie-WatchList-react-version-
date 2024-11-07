@@ -13,7 +13,7 @@ function PopUp(props) {
         setOpacity(1);
       }, 10);
     } else {
-      setOpacity(0);
+      if (opacity != 0) setOpacity(0);
     }
     
     return () => {

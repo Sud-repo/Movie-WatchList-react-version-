@@ -6,7 +6,7 @@ function LoginPage() {
 
     const navigate = useNavigate();
 
-    async function loginUser(event, requestData) {
+    async function loginUser(event, username, password) {
         event.preventDefault();
         const form = event.target.closest('form');
         if (!form.checkValidity()) {
@@ -19,7 +19,7 @@ function LoginPage() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(requestData),
+            body: JSON.stringify({username, password}),
         });
         let data;
         try { data = await response.json(); } 

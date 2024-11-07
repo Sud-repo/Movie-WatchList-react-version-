@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 
 function Login(props) {
 
@@ -7,24 +7,11 @@ function Login(props) {
     function handleClick() {
         setShowPassword(prev => !prev)
     }
-
-    const [formData, setFormData] = useState({
-        username: '',
-        password: ''
-    });
+    const userNameRef = useRef('');
+    const passwordRef = useRef('');
     const [uFocused, setUFocused] = useState(false);
     const [pFocused, setPFocused] = useState(false);
-
-    function handleChange(event) {
-        let {name, value} = event.target
-        setFormData( prev => {
-            return {
-                ...prev,
-                [name]: value
-            }
-        });
-    }
-
+    console.log(userNameRef)
     let eyeStyle = showPassword ? "fa-regular fa-eye eye-pos" : "fa-regular fa-eye-slash eye-pos";
 
   return (
@@ -33,22 +20,22 @@ function Login(props) {
         <h2>Login</h2>
         <form>
             <div className="user-box">
-            <input onChange={handleChange} 
+            <input ref={userNameRef}
                     onFocus={() => setUFocused(true)} 
                     onBlur={() => setUFocused(false)} 
                     type="text" name="username" required 
-                    autoComplete="username" />
-            <label className={uFocused || formData.username ? 'a-label' : ''} >Username</label>
+       function             autoComplete="username" />
+            <label className={uFocused || userNameRef.current.value ? 'a-label' : ''} >Username</label>
             </div>
             <div className="user-box">
-            <input onChange={handleChange} 
+            <input ref={passwordRef}
                     onFocus={() => setPFocused(true)} 
                     onBlur={() => setPFocused(false)} 
                     type={showPassword ? "text" : "password"} name="password" required 
                     autoComplete="current-password" />
-            <label className={pFocused || formData.password ? 'a-label' : ''} >Password</label>
+            <label className={pFocused || passwordRef.current.value ? 'a-label' : ''} >Password</label>
             </div>
-            <button type="submit" onClick={(event) => props.onSubmit(event, formData)} >
+            <button type="submit" onClick={(event) => props.onSubmit(event, userNameRef.current.value, passwordRef.current.value)} >
             Submit
             </button>
             <i className={eyeStyle} onClick={handleClick}></i>
