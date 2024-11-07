@@ -15,7 +15,6 @@ function WatchlistButtons(props) {
 
   const removeMovieFromWatchList = async (icon) => {
     try{
-      props.showLoading(true);
         const res = await fetch(`/base-url/movies/remove/${props.id}`, {
             method: 'DELETE',
             headers: {
@@ -30,7 +29,7 @@ function WatchlistButtons(props) {
     } catch (error) {
         console.log('Error fetching Data: ' +error);
         showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
-    } finally {props.showLoading(false)}
+    }
   }
 
     const setMovieToWatched = async (icon) => {
@@ -39,7 +38,6 @@ function WatchlistButtons(props) {
       return;
     }
     try{
-      props.showLoading(true);
       const res = await fetch(`/base-url/movies/watched/${props.id}`, {
           method: 'PUT',
           headers: {
@@ -51,11 +49,9 @@ function WatchlistButtons(props) {
           showPopup(props.movieName + ': ' + jsonRes.message, icon)
           toggleIsWatched()
       }
-      props.showLoading(false);
       } catch (error) {
           console.log('Error fetching Data: ' +error);
           showPopup('Error! Please Try Later', 'fa-solid fa-circle-exclamation')
-          props.showLoading(false);
       }
     }
 

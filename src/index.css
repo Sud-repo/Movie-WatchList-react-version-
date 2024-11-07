@@ -500,6 +500,7 @@ small {
 }
 
 .button-effect {
+	width: 94px;
 	background-color: #11171c;
     font-size: 0.6rem;
     font-weight: 700;
