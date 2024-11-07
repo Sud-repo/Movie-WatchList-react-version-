@@ -27,8 +27,8 @@ function HomePage() {
       const jsonRes = await res.json();
       if (jsonRes.isLast) hasMore.current =false;
       if (jsonRes.data !== null) setMovies((prevMovies) => {
-        // if (prevMovies != null) 
-          [...prevMovies, ...jsonRes.data]
+        if (prevMovies != null) return [...prevMovies, ...jsonRes.data]
+        else return jsonRes.data 
       });
       pageNo.current = pageNo.current+1;
     } catch (error) {
@@ -42,7 +42,7 @@ function HomePage() {
     <>
       {movies === null ? <> 
           <div className='Empty-space'></div> <Loader /> 
-        </> : movies.length > 0 ? (
+        </> : movies != null && movies.length > 0 ? (
           <InfiniteScroll
           dataLength={movies.length}
           next={fetchMovies}
